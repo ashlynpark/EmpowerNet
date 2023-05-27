@@ -1,4 +1,4 @@
-import {View, Text, ImageBackground, SafeAreaView, ScrollView, TouchableOpacity, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, ImageBackground, SafeAreaView, ScrollView, TouchableOpacity, StyleSheet, Dimensions, Button, Alert} from 'react-native';
 import Screen from '../components/Screen';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -7,7 +7,7 @@ const ProfilePage = () => {
     return(
         <Screen preset='scroll'>
             <SafeAreaView style={[styles.titleContainer, {flexDirection: 'row'}]}>
-                <Ionicons name="person-circle-outline" size={100} color="white" style={{paddingHorizontal: '7%', paddingTop: 10}} />
+                <Ionicons name="person-circle-outline" size={100} color="white" style={{paddingHorizontal: '7%', paddingTop: 15}} />
                 <View style={{flexDirection: 'column', alignContent: 'flex-start'}}>
                     <Text style={[styles.titleText, {paddingHorizontal: '6%'}]}>
                         Name
@@ -15,21 +15,36 @@ const ProfilePage = () => {
                     <Text style={styles.subheading}>
                         Pronouns
                     </Text>
-                    <Text style={[styles.subheading, { paddingBottom: 10}]}>
+                    <Text style={[styles.subheading]}>
                         Position/Job Title
                     </Text>
+                    <Text style={[styles.subheading]}>
+                        Salary
+                    </Text>
+                    <Text style={[styles.subheading]}>
+                        Yrs. of Experience
+                    </Text>
+                    <View>
+                        <Button
+                            onPress={() => Alert.alert('Simple Button pressed')}
+                            title="Add+ Button"
+                            color="white"
+                            accessibilityLabel="Add something...idk"
+                            
+                        />
+                    </View>
                 </View>
             </SafeAreaView>
             
             <View>
-                <Text style={{ fontSize: 20, fontFamily: 'Barlow_500Medium', paddingLeft: '5%', paddingTop: '5%' }}>
+                <Text style={styles.section}>
                     Demographic
                 </Text>
                 
             </View>
 
             <View>
-                <Text style={{ fontSize: 20, fontFamily: 'Barlow_500Medium', paddingLeft: '5%', paddingTop: '5%'}}>
+                <Text style={styles.section}>
                     Bio
                 </Text>
                 <View style={[styles.viewCard]}>
@@ -38,7 +53,7 @@ const ProfilePage = () => {
             </View>
 
             <View>
-                <Text style={{ fontSize: 20, fontFamily: 'Barlow_500Medium', paddingLeft: '5%', paddingTop: '5%' }}>
+                <Text style={styles.section}>
                     Work Experience
                 </Text>
                 <View style={[styles.viewCard, {}]}>
@@ -59,7 +74,7 @@ const ProfilePage = () => {
             </View>
 
             <View>
-                <Text style={{ fontSize: 20, fontFamily: 'Barlow_500Medium', paddingLeft: '5%', paddingTop: '5%', paddingBottom: '0%'}}>
+                <Text style={[styles.section, {paddingBottom: '0%'}]}>
                     Education
                 </Text>
                 <View style={[styles.viewCard, {}]}>
@@ -98,12 +113,6 @@ const dummyWorkExp = [
 ]
 
 const styles = StyleSheet.create({
-    headerImage:{
-        width: '100%',
-        height: 100,
-        overflow: 'hidden',
-        resizeMode: 'cover'
-    },
     titleContainer: {
         backgroundColor: '#2D3142',
     },
@@ -114,9 +123,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: '3%',
         paddingTop: '3%'
     },
-    section: {
-        padding: 12,
-    },
     subheading: {
         fontSize: 18,
         fontFamily: 'Barlow_500Medium',
@@ -124,21 +130,17 @@ const styles = StyleSheet.create({
         color: '#F0FAEF',
         paddingHorizontal: '5%'
     },
+    section: {
+        fontSize: 20, 
+        fontFamily: 'Barlow_500Medium', 
+        paddingLeft: '5%', 
+        paddingTop: '5%'
+    },
     companyInfo: {
         fontSize: 16,
         fontFamily: 'Barlow_400Regular',
     },
-    categoryName1: {
-        fontSize: 26,
-        fontFamily: 'Syne_700Bold',
-        color: '#2D3142'
-    },
-    littleTab:{
-        backgroundColor: '#EAE8FF',
-        alignItems:'center',
-        
-   },
-   viewCard:{
+    viewCard:{
         backgroundColor: '#B0D7FE',
         marginTop:'5%',
         marginHorizontal: '5%',
@@ -146,15 +148,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: '5%'
 
-   },
-   categoryName2:{
-        fontFamily: 'Barlow_600SemiBold', 
-        color: '#F0FAEF', 
-        fontSize: 20, 
-        alignSelf: 'center', 
-        textAlign: 'center',
-        marginBottom: '3%'
-   }
+    }
 })
 
 

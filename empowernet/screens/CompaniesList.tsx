@@ -1,23 +1,44 @@
-import {View, Text, ImageBackground, SafeAreaView, StyleSheet} from 'react-native';
+import {View, Text, ImageBackground, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 import Screen from '../components/Screen';
 import StarRating from 'react-native-star-rating-widget';
 import { Divider } from '@rneui/themed';
 import top_50_USA_tech_companies from '../data/top_50_USA_tech_companies.json';
+import { useNavigation } from '@react-navigation/native';
+import CompanyPage from './CompanyPage';
 
 
-// MAKE THIS INTO A COMPONENT
 const bgImage = 'https://images.unsplash.com/photo-1462396240927-52058a6a84ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2873&q=80'
 
 // const companyName = top_50_USA_tech_companies["Company Name"]
 const companies = top_50_USA_tech_companies;
 
 const CompanyCard = (props:{company: any}) => {
+    const navigation = useNavigation();
+
+    const goToProfile = () => {
+        const data = props.company;
+        navigation.navigate('Company', data);
+    };
+
     return(
-        <View style={styles.viewCard}>
-            <Text>
-                {props.company["Company Name"]}
-            </Text>
-        </View>
+        <TouchableOpacity style={styles.viewCard} onPress={goToProfile}>
+            <View style={{flexDirection: 'row'}}>
+                {/* INSERT LOGO HERE IF WE GET TO IT */}
+                <View style={{flexDirection: 'column', flex: 1}}>
+                    <Text style={styles.companyName}>
+                        {props.company["Company Name"]}
+                    </Text>  
+                    <Text style={styles.subheading}>
+                        {props.company["Sector"]}
+                    </Text> 
+                    <Text style={styles.subheading}>
+                        {props.company["Employee Size"]} employees
+                    </Text>                                  
+                </View>
+
+            </View>
+
+        </TouchableOpacity>
     )
 
 }
@@ -65,16 +86,14 @@ const styles = StyleSheet.create({
     subheading: {
         fontSize: 18,
         fontFamily: 'Barlow_500Medium',
-        margin: 3,
-        color: '#F0FAEF',
-        paddingHorizontal: '5%'
+        color: 'black',
     },
     companyInfo: {
         fontSize: 16,
         fontFamily: 'Barlow_400Regular',
     },
-    categoryName1: {
-        fontSize: 26,
+    companyName: {
+        fontSize: 18,
         fontFamily: 'Syne_700Bold',
         color: '#2D3142'
     },
@@ -84,12 +103,15 @@ const styles = StyleSheet.create({
         
    },
    viewCard:{
-        backgroundColor: '#B0D7FE',
-        marginTop:'5%',
+        backgroundColor: '#F0FAEF',
+        marginTop:'2%',
         marginHorizontal: '5%',
-        marginBottom: '3%',
+        marginBottom: '2%',
         borderRadius: 10,
-        padding: '5%'
+        padding: '5%',
+        shadowColor: 'black',
+        shadowOpacity: 0.5,
+        shadowOffset: {width: 0, height: 1}
 
    },
    categoryName2:{

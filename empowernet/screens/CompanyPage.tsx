@@ -3,10 +3,13 @@ import Screen from '../components/Screen';
 import StarRating from 'react-native-star-rating-widget';
 import { Divider } from '@rneui/themed';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { useRoute } from '@react-navigation/native';
+
 // MAKE THIS INTO A COMPONENT
 const bgImage = 'https://images.unsplash.com/photo-1462396240927-52058a6a84ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2873&q=80'
 const avg = 4.6
 const RatingsView = () => {
+    
     return(
         <Screen preset="scroll">
             <View style={[styles.viewCard, {shadowColor: '#344966', shadowOpacity: 0.5, shadowOffset: {width: 0, height: 5}}]}>
@@ -302,17 +305,32 @@ const dummyCompany = {
     ]
 }
 
+
 const CompanyPage = ({navigation}) => {
+    const route = useRoute();
+    const company = route.params;
+    // const company =     {
+    //     "Company Name": "Apple Inc.",
+    //     "Industry": "Technology",
+    //     "Sector": "Consumer Electronics",
+    //     "HQ State": "California",
+    //     "Founding Year": "1976",
+    //     "Annual Revenue 2022-2023 (USD in Billions)": "387.53",
+    //     "Market Cap (USD in Trillions)": "2.52",
+    //     "Stock Name": "AAPL",
+    //     "Annual Income Tax in 2022-2023 (USD in Billions)": "18.314",
+    //     "Employee Size": "164000"
+    // }
     return(
             <ScrollView contentContainerStyle={{flex: 1}}>
                 <SafeAreaView style={styles.titleContainer}>
                     <TouchableOpacity onPress={()=>{console.log('LINK ME TO GO BACK')}}></TouchableOpacity>
-                    <Text style={styles.titleText}>{dummyCompany.name}</Text>
-                    <Text style={[styles.subheading, {color:'#B0D7FE'}]}>{dummyCompany.industry}</Text>
+                    <Text style={styles.titleText}>{company["Company Name"]}</Text>
+                    <Text style={[styles.subheading, {color:'#B0D7FE'}]}>{company["Sector"]}</Text>
                     <View style={{flexDirection: 'row', paddingBottom: '2%'}}>
-                        <Text style={[styles.subheading, {color:'#EAE8FF'}]}>{dummyCompany.location}</Text>
+                        <Text style={[styles.subheading, {color:'#EAE8FF'}]}>{company["HQ State"]}</Text>
                         <Text style={[styles.subheading, {color:'#EAE8FF'}]}>|</Text>
-                        <Text style={[styles.subheading, {color:'#EAE8FF'}]}>{dummyCompany.numberEmployees} employees</Text>
+                        <Text style={[styles.subheading, {color:'#EAE8FF'}]}>{company["Employee Size"]} employees</Text>
                     </View>
                 </SafeAreaView>
                 <Tab.Navigator 

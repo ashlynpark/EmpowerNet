@@ -11,7 +11,7 @@ const AppStack = () => {
     return (
         <Stack.Navigator initialRouteName="Home">
             <Stack.Screen 
-                name="Nav"
+                name="Home"
                 component={TabNavigator}
                 options={{
                     headerShown: false
