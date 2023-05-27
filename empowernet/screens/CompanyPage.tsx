@@ -135,17 +135,36 @@ const RatingsView = () => {
 const ReviewsView = (props:{}) => {
     return(
         <Screen preset="scroll">
-            {dummyCompany.reviews.map((item, index) => {                
+            {dummyCompany.reviews.map((item) => {      
+                var total = 0;
+                for (var i = 0; i < item.ratings.length; i++) {
+                    total += item.ratings[i].rating;
+                }
+                var avg = total / item.ratings.length;          
+
                 return (
-                    <View key={index} style={[styles.viewCard, { flexDirection: 'row', flexWrap: 'wrap' }]}>
-                        <View style={{ width: '50%' }}>
-                            <Text>Test 1</Text>
+                    <View style={[styles.viewCard, {flexDirection: 'row', flexWrap: 'wrap'}]}>
+                        <View style={{flexDirection: 'column', width: '40%', alignSelf: 'center', paddingRight: 8}}>
+                            {item.ratings.map((item2, index) => {
+                                return (
+                                    <View key={index} style={{ flexDirection: 'column', alignSelf: 'center', marginVertical: 2 }}>
+                                        <Text style={{ fontFamily: 'Barlow_600SemiBold' }}>{item2.category}</Text>
+                                        <Text style={{ alignSelf: 'center' }}>{item2.rating} out of 5</Text>
+                                    </View>
+                                )
+                            })}
                         </View>
-                        <View style={{ width: '50%' }}>
-                            <Text>Test 2</Text>
-                        </View>
-                        <Text>{item.date}</Text>
-                        <Text>{item.content}</Text>
+                        <View style={{ width: '60%', height: '100%', paddingHorizontal: 8, borderLeftWidth: 1, borderLeftColor: 'white' }}>
+                            <Text style={{flexDirection: 'row'}}>Overall: <StarRating rating={avg} onChange={() => { }} starSize={14} color='black' starStyle={{ marginHorizontal: 2}} /> </Text>
+                            <Text style={{ fontFamily: 'Barlow_600SemiBold', paddingTop: 10 }}>Review:</Text>
+                            <Text>{item.content}</Text>
+
+                            <View style={{paddingTop: 5}}>
+                                <Text style={{alignSelf: 'flex-end'}}>{item.role}</Text>
+                                <Text style={{alignSelf: 'flex-end'}}>{item.date}</Text>
+                            </View>
+                            
+                        </View>                        
                     </View>
                 )
             })}
@@ -208,7 +227,7 @@ const dummyCompany = {
                     'rating' : 2
                 }
             ],
-            'date': '01-06-2022',
+            'date': 'January 1, 2022',
             'role': "Manager"
         },
         {
@@ -236,11 +255,11 @@ const dummyCompany = {
                 }
 
             ],
-            'date': '01-02-2020',
-            'role': "Web Dev"
+            'date': 'March 13, 2020',
+            'role': "Web Developer"
         },
         {
-            'content': ' Long Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review',
+            'content': 'Long Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review',
             'ratings': [
                 {
                     'category': 'Work-Life Balance',
@@ -263,7 +282,7 @@ const dummyCompany = {
                     'rating': 5
                 }
             ],
-            'date': '11-06-2030',
+            'date': 'November 6, 2030',
             'role': "Business"
         }
     ]

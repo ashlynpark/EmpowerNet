@@ -2,12 +2,11 @@ import {View, Text, ImageBackground, SafeAreaView, StyleSheet} from 'react-nativ
 import Screen from '../components/Screen';
 import StarRating from 'react-native-star-rating-widget';
 import { Divider } from '@rneui/themed';
-import top_50_USA_tech_companies from '../../data/top_50_USA_tech_companies.json';
 
 // MAKE THIS INTO A COMPONENT
 const bgImage = 'https://images.unsplash.com/photo-1462396240927-52058a6a84ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2873&q=80'
 
-const companyName = top_50_USA_tech_companies["Company Name"]
+// const companyName = top_50_USA_tech_companies["Company Name"]
 
 const CompaniesList = () => {
     return(
