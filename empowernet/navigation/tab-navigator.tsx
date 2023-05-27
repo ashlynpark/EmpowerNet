@@ -4,7 +4,7 @@ import { View } from 'react-native';
 
 
 import Home from '../screens/Home';
-import CompanyPage from '../screens/CompanyPage';
+import CompanyPage from '../screens/CompanyProfile';
 
 
 const Tab = createBottomTabNavigator();
