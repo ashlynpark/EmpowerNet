@@ -1,6 +1,7 @@
 import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 import Screen from '../components/Screen';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons, Ionicons, AntDesign } from '@expo/vector-icons'; 
+
 
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
                     Welcome, User
                 </Text>
             </SafeAreaView>
-            <View style={[styles.viewCard, {alignItems: 'center', justifyContent: 'center'}]}>
+            <View style={[styles.viewCard, {alignItems: 'center', justifyContent: 'center', borderWidth: 4, borderColor: '#870065'}]}>
                 <Text style={styles.subheading}>
                     Did you know?
                 </Text>
@@ -20,15 +21,15 @@ const Home = () => {
                 </Text>
             </View>
             <View style={{flexDirection: 'row', marginVertical: '5%'}}>
-                <View style={{alignItems: 'center', justifyContent: 'center', backgroundColor:'#0D1821', padding: '3%', borderRadius: 15, flex: 1, marginLeft: '6%', marginHorizontal: '3%'}}>
-                    <MaterialCommunityIcons name="star-shooting" size={40} color="#BFCC94" />
-                    <Text style={styles.categoryName2}>
+                <View style={{alignItems: 'center', justifyContent: 'center', backgroundColor:'#B0D7FE', padding: '3%', borderRadius: 15, flex: 1, marginLeft: '6%', marginHorizontal: '3%', shadowColor: 'black', shadowOpacity: 0.5, shadowOffset: {width: 0, height: 1}}}>
+                    <Ionicons name="people" size={40} color="#2D3142" />
+                    <Text style={[styles.categoryName2, {color: '#2D3142'}]}>
                         Your Network
                     </Text>
                 </View>  
-                <View style={{alignItems: 'center', justifyContent: 'center', backgroundColor:'#0D1821', padding: '3%', borderRadius: 15, flex: 1, marginRight: '6%',marginHorizontal: '3%'}}>
-                    <MaterialCommunityIcons name="star-shooting" size={40} color="#BFCC94" />
-                    <Text style={styles.categoryName2}>
+                <View style={{alignItems: 'center', justifyContent: 'center', backgroundColor:'#E6AACE', padding: '3%', borderRadius: 15, flex: 1, marginRight: '6%',marginHorizontal: '3%', shadowColor: 'black', shadowOpacity: 0.5, shadowOffset: {width: 0, height: 1}}}>
+                    <AntDesign name="heart" size={40} color="#2D3142" />
+                    <Text style={[styles.categoryName2, {color: '#2D3142'}]}>
                         Favorited
                     </Text>
                 </View>    
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Barlow_400Regular',
     },
     categoryName1: {
-        fontSize: 22,
+        fontSize: 20,
         fontFamily: 'Syne_700Bold',
         color: '#2D3142',
         flex: 1,
@@ -142,9 +143,6 @@ const styles = StyleSheet.create({
         marginBottom: '3%',
         borderRadius: 10,
         padding: '5%',
-        shadowColor: '#870065',
-        shadowOpacity: 0.3,
-        shadowOffset: { width: 0, height: 0}
 
    },
    categoryName2:{

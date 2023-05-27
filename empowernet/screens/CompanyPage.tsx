@@ -143,28 +143,42 @@ const ReviewsView = (props:{}) => {
                 var avg = total / item.ratings.length;          
 
                 return (
-                    <View style={[styles.viewCard, {flexDirection: 'row', flexWrap: 'wrap'}]}>
-                        <View style={{flexDirection: 'column', width: '40%', alignSelf: 'center', paddingRight: 8}}>
+                    <View style={[styles.viewCard, {paddingLeft: '2%'}]}>
+                        <View style={{paddingHorizontal: '5%'}}>
+                            <Text style={{flexDirection: 'row'}}>
+                                Overall: <StarRating rating={avg} onChange={() => { }} starSize={14} color='black' starStyle={{ marginHorizontal: 2}} /> 
+                            </Text>
+                            <Text style={{ fontFamily: 'Barlow_600SemiBold' }}>
+                                Review:
+                            </Text>
+                            <Text>
+                                {item.content}
+                            </Text>
+
+                            <View style={{paddingTop: 5}}>
+                                <Text style={{alignSelf: 'flex-start'}}>
+                                    {item.role}
+                                </Text>
+                                <Text style={{alignSelf: 'flex-start'}}>
+                                    {item.date}
+                                </Text>
+                            </View>
+                            
+                        </View> 
+                        <View style={{flexDirection: 'row', flexWrap:'wrap', alignItems: 'center'}}>
                             {item.ratings.map((item2, index) => {
                                 return (
-                                    <View key={index} style={{ flexDirection: 'column', alignSelf: 'center', marginVertical: 2 }}>
-                                        <Text style={{ fontFamily: 'Barlow_600SemiBold' }}>{item2.category}</Text>
-                                        <Text style={{ alignSelf: 'center' }}>{item2.rating} out of 5</Text>
+                                    <View key={index} style={{ flexDirection: 'column', alignSelf: 'center', marginVertical: '2%', marginHorizontal: '3%' }}>
+                                        <Text style={{ fontFamily: 'Barlow_600SemiBold' }}>
+                                            {item2.category}
+                                        </Text>
+                                        <Text style={{ alignSelf: 'center' }}>
+                                            {item2.rating} out of 5
+                                        </Text>
                                     </View>
                                 )
                             })}
-                        </View>
-                        <View style={{ width: '60%', height: '100%', paddingHorizontal: 8, borderLeftWidth: 1, borderLeftColor: 'white' }}>
-                            <Text style={{flexDirection: 'row'}}>Overall: <StarRating rating={avg} onChange={() => { }} starSize={14} color='black' starStyle={{ marginHorizontal: 2}} /> </Text>
-                            <Text style={{ fontFamily: 'Barlow_600SemiBold', paddingTop: 10 }}>Review:</Text>
-                            <Text>{item.content}</Text>
-
-                            <View style={{paddingTop: 5}}>
-                                <Text style={{alignSelf: 'flex-end'}}>{item.role}</Text>
-                                <Text style={{alignSelf: 'flex-end'}}>{item.date}</Text>
-                            </View>
-                            
-                        </View>                        
+                        </View>                       
                     </View>
                 )
             })}
