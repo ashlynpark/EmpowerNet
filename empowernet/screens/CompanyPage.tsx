@@ -8,7 +8,7 @@ const bgImage = 'https://images.unsplash.com/photo-1462396240927-52058a6a84ec?ix
 const avg = 4.6
 const RatingsView = () => {
     return(
-        <View>
+        <Screen preset="scroll">
             <View style={[styles.viewCard, {shadowColor: '#344966', shadowOpacity: 0.5, shadowOffset: {width: 0, height: 5}}]}>
                 <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                     <View style={{flexDirection: 'column', flex: 1.5, marginRight: '10%', justifyContent: 'center', alignItems: 'center'}}>
@@ -105,17 +105,52 @@ const RatingsView = () => {
                             <Text style={{color: '#344966', margin: 0, fontSize: 16, fontFamily: 'Barlow_500Medium'}}>{dummyCompany.ratings.length} ratings</Text>
                     </View>
                 </View>
+
+                <View style={{flexDirection:'row', justifyContent: 'space-between', marginTop: '7%' }}>
+                    <View style={{flexDirection:'column',  flex: 1, paddingHorizontal: '3%', alignItems: 'center', justifyContent: 'center',}}>
+                        <Text style={[styles.categoryName2, {color: '#BFCC94'}]}>Diversity</Text>
+                    </View>
+                </View>
+                <View style={{flexDirection: 'row',}}>
+                    <View style={{flexDirection: 'column', alignItems: 'center',  flex: 1, backgroundColor: '#BFCC94', paddingVertical: '2%', marginHorizontal: '5%', borderRadius: 4}}>
+                            <Text style={{color: '#2D3142', marginTop: -5, fontSize: 30, fontFamily: 'Barlow_600SemiBold'}}>3.5</Text>
+                            <StarRating rating={avg} onChange={()=> {}} 
+                                    starSize={18} 
+                                    starStyle={{marginHorizontal: 0.4}}
+                                    color='#2D3142'
+                                    animationConfig={{
+                                        scale: 1,
+                                        duration: 0,
+                                        delay: 0
+                                    }}/>  
+                            <Text style={{color: '#344966', margin: 0, fontSize: 16, fontFamily: 'Barlow_500Medium'}}>{dummyCompany.ratings.length} ratings</Text>
+                    </View>
+                </View>
             </View>
-        </View>
+        </Screen>
     )
 }
 
 
 const ReviewsView = (props:{}) => {
     return(
-        <View>
-            <Text>REVIEWS</Text>
-        </View>
+        <Screen preset="scroll">
+            {dummyCompany.reviews.map((item, index) => {                
+                return (
+                    <View key={index} style={[styles.viewCard, { flexDirection: 'row', flexWrap: 'wrap' }]}>
+                        <View style={{ width: '50%' }}>
+                            <Text>Test 1</Text>
+                        </View>
+                        <View style={{ width: '50%' }}>
+                            <Text>Test 2</Text>
+                        </View>
+                        <Text>{item.date}</Text>
+                        <Text>{item.content}</Text>
+                    </View>
+                )
+            })}
+
+        </Screen>
     )
 }
 
@@ -150,12 +185,86 @@ const dummyCompany = {
     ],
     'reviews': [
         {
-            'content': 'Company is Ok. Could be better',
+            'content': 'Company is Ok. Could be better.',
             'ratings': [
+                {
+                    'category': 'Work-Life Balance',
+                    'rating': 4,
+                },
+                {
+                    'category': 'Compensation',
+                    'rating': 3.5,
+                },
+                {
+                    'category': 'Upward Mobility',
+                    'rating': 3.5,
+                },
+                {
+                    'category': 'Company Culture',
+                    'rating': 4,
+                },
+                {
+                    'category': 'Diversity',
+                    'rating' : 2
+                }
+            ],
+            'date': '01-06-2022',
+            'role': "Manager"
+        },
+        {
+            'content': 'This is the best company I have ever worked in. Free food, free eduction.',
+            'ratings': [
+                {
+                    'category': 'Work-Life Balance',
+                    'rating': 5,
+                },
+                {
+                    'category': 'Compensation',
+                    'rating': 3.5,
+                },
+                {
+                    'category': 'Upward Mobility',
+                    'rating': 5,
+                },
+                {
+                    'category': 'Company Culture',
+                    'rating': 4,
+                },
+                {
+                    'category': 'Diversity',
+                    'rating': 2
+                }
 
             ],
             'date': '01-02-2020',
-            'role': "Manager"
+            'role': "Web Dev"
+        },
+        {
+            'content': ' Long Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review Review',
+            'ratings': [
+                {
+                    'category': 'Work-Life Balance',
+                    'rating': 1,
+                },
+                {
+                    'category': 'Compensation',
+                    'rating': 2.5,
+                },
+                {
+                    'category': 'Upward Mobility',
+                    'rating': 1.5,
+                },
+                {
+                    'category': 'Company Culture',
+                    'rating': 4.2,
+                },
+                {
+                    'category': 'Diversity',
+                    'rating': 5
+                }
+            ],
+            'date': '11-06-2030',
+            'role': "Business"
         }
     ]
 }
