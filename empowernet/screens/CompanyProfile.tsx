@@ -19,7 +19,7 @@ const dummyCompany = {
         },
         {
             'category': 'Upward Mobility',
-            'ratings': [4, 5, 5, 4, 4.5, 4],
+            'ratings': [4, 5, 5, 4, 4.5, 4, 5, 5, 5],
         },
         {
             'category': 'Company Culture',
