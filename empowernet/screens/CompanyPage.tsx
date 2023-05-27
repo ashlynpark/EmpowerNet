@@ -6,10 +6,10 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 // MAKE THIS INTO A COMPONENT
 const bgImage = 'https://images.unsplash.com/photo-1462396240927-52058a6a84ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2873&q=80'
 const avg = 4.6
-const RatingsView = (props:{}) => {
+const RatingsView = () => {
     return(
         <View>
-            <View style={styles.viewCard}>
+            <View style={[styles.viewCard, {shadowColor: '#344966', shadowOpacity: 0.5, shadowOffset: {width: 0, height: 5}}]}>
                 <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                     <View style={{flexDirection: 'column', flex: 1.5, marginRight: '10%', justifyContent: 'center', alignItems: 'center'}}>
                         <Text style={[styles.categoryName1, {marginBottom: '5%'}]}>Overall</Text>
@@ -169,6 +169,7 @@ const CompanyPage = ({navigation}) => {
                     <Text style={[styles.subheading, {color:'#B0D7FE'}]}>{dummyCompany.industry}</Text>
                     <View style={{flexDirection: 'row', paddingBottom: '2%'}}>
                         <Text style={[styles.subheading, {color:'#EAE8FF'}]}>{dummyCompany.location}</Text>
+                        <Text style={[styles.subheading, {color:'#EAE8FF'}]}>|</Text>
                         <Text style={[styles.subheading, {color:'#EAE8FF'}]}>{dummyCompany.numberEmployees} employees</Text>
                     </View>
                 </SafeAreaView>
