@@ -42,7 +42,19 @@ const ProfilePage = () => {
                     Work Experience
                 </Text>
                 <View style={[styles.viewCard, {}]}>
+                    {dummyWorkExp.map((item, index) => {
+                        return (
+                            <View key={index}>
+                                <Text>
+                                    {item.company}
+                                </Text>
+                                <Text>
+                                    {item.startDate}-{item.endDate}
+                                </Text>
 
+                            </View>
+                        )
+                    })}
                 </View>
             </View>
 
@@ -78,7 +90,7 @@ const dummyWorkExp = [
         'endDate': 'February 2051'
     },
     {
-        'company': 'Compant',
+        'company': 'Company',
         'jobTitle': 'Idk',
         'startDate': 'December 2009',
         'endDate': 'December 2009'
