@@ -12,7 +12,7 @@ const Home = () => {
                     Welcome, User
                 </Text>
             </SafeAreaView>
-            <View style={[styles.viewCard, {alignItems: 'center', justifyContent: 'center', borderWidth: 4, borderColor: '#870065'}]}>
+            <View style={[styles.viewCard, {alignItems: 'center', justifyContent: 'center', borderWidth: 5, borderColor: 'white'}]}>
                 <Text style={styles.subheading}>
                     Did you know?
                 </Text>

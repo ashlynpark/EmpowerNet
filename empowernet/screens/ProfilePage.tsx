@@ -25,7 +25,7 @@ const ProfilePage = () => {
                 <Text style={{ fontSize: 20, fontFamily: 'Barlow_500Medium', paddingLeft: '5%', paddingTop: '5%' }}>
                     Demographic
                 </Text>
-
+                
             </View>
 
             <View>
@@ -44,9 +44,9 @@ const ProfilePage = () => {
                 <View style={[styles.viewCard, {}]}>
                     {dummyWorkExp.map((item, index) => {
                         return (
-                            <View key={index}>
+                            <View key={index} style={{paddingVertical: '2%'}}>
                                 <Text>
-                                    {item.company}
+                                    {item.company} ({item.jobTitle})
                                 </Text>
                                 <Text>
                                     {item.startDate}-{item.endDate}
@@ -63,7 +63,7 @@ const ProfilePage = () => {
                     Education
                 </Text>
                 <View style={[styles.viewCard, {}]}>
-
+                    
                 </View>
             </View>
         </Screen>
@@ -84,13 +84,13 @@ const dummyWorkExp = [
         'endDate': 'Present'
     },
     {
-        'company': 'What',
+        'company': 'What Company',
         'jobTitle': 'Intern',
         'startDate': 'January 2050',
         'endDate': 'February 2051'
     },
     {
-        'company': 'Company',
+        'company': 'Company 2.0',
         'jobTitle': 'Idk',
         'startDate': 'December 2009',
         'endDate': 'December 2009'
