@@ -67,10 +67,10 @@ const Home = ({}) => {
                             Accenture
                         </Text>
                         <Text style={{fontFamily: 'Barlow_500Medium', marginBottom: 0, fontSize: 16, color: '#0D1821'}}>
-                            Tech Industry
+                            Information Technology
                         </Text>
                         <Text style={{fontFamily: 'Barlow_500Medium', marginBottom: 0,fontSize: 16, color: '#0D1821'}}>
-                            Irvine, CA
+                            Dublin, Ireland
                         </Text>
                     </View>
                 </View>
@@ -84,13 +84,13 @@ const Home = ({}) => {
                     </View>    
                     <View style={{alignItems: 'center', justifyContent: 'center', flex: 2, marginLeft:'5%', }}>
                         <Text style={[styles.categoryName1, {marginBottom: 0, padding: 0, fontSize: 20, color: '#870065'}]}>
-                            Company Name
+                            Cisco
                         </Text>
                         <Text style={{fontFamily: 'Barlow_500Medium', marginBottom: 0, fontSize: 16, color: '#870065'}}>
-                            Tech Industry
+                            Technology
                         </Text>
                         <Text style={{fontFamily: 'Barlow_500Medium', marginBottom: 0,fontSize: 16, color: '#870065'}}>
-                            Irvine, CA
+                            San Jose, CA
                         </Text>
                         <Text style={[styles.categoryName2, {color: '#e381bc', fontSize: 14, textAlign: 'center', marginTop: 0}]}>
                             Based on your interests
