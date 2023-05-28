@@ -1,6 +1,6 @@
-import {View, Text, ImageBackground, SafeAreaView, ScrollView, TouchableOpacity, StyleSheet, Dimensions, Button, Alert, Image} from 'react-native';
+import {View, Text, ImageBackground, SafeAreaView, ScrollView, TouchableOpacity, StyleSheet, Dimensions, Button, Alert} from 'react-native';
 import Screen from '../components/Screen';
-import { AntDesign, Feather } from '@expo/vector-icons';
+import { AntDesign, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
 const profilepic = 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80'
 
@@ -8,21 +8,27 @@ const NetworkingScreen = () => {
     return(
         <Screen preset='scroll'>
             <SafeAreaView style={styles.titleContainer}>
-                <Text style={styles.titleText}>
+                <Text style={[styles.titleText, {alignSelf: 'center', padding: 10}]}>
                     Network
                 </Text>
             </SafeAreaView>
 
-            <View style={{ margin: '5%', borderWidth: 1}}>
-
-
-                <ImageBackground source={{ uri: profilepic }} resizeMode="contain" style={{width: '100%', justifyContent: 'center',} } >
-                    <Text style={{color: 'white'}}>Pic Here</Text>
-                </ImageBackground>
-               
-                <View style={styles.viewCard}>
-                    <Text>Name, pronouns, position, salary, etc. </Text>
+            <View style={{ margin: '8%', borderWidth: 2, borderRadius: 20}}>      
+                <Text style={{ color: 'black', fontFamily: 'Barlow_500Medium', fontSize: 20, textAlign: 'center', textAlignVertical: 'bottom', padding: 2}}>
+                    Name (pronouns)
+                </Text>   
+                <View style={styles.imageWrapper}>
+                    <ImageBackground source={{ uri: profilepic }} resizeMode="contain" style={{width: '100%', height: '100%'}} >
+                        <View style={{flex: 8}}></View>
+                        <Text style={{ flex: 1, color: 'white', fontFamily: 'Barlow_500Medium', textAlign: 'center', textAlignVertical: 'bottom' }}>
+                            position
+                        </Text>
+                        <Text style={{ flex: 1, color: 'white', fontFamily: 'Barlow_500Medium', textAlign: 'center', textAlignVertical: 'bottom' }}>
+                            salary
+                        </Text>
+                    </ImageBackground>
                 </View>
+
                 <View style={styles.viewCard}>
                     <Text>Bio Here</Text>
                 </View>
@@ -31,7 +37,7 @@ const NetworkingScreen = () => {
                 </View>
             </View>
 
-            <View style={{flexDirection: 'row', padding: 20, alignSelf: 'center', gap: 30}}>
+            <View style={{flexDirection: 'row', alignSelf: 'center', gap: 30}}>
                 <Feather name="x-circle" size={80} color="red" />
                 <AntDesign name="checkcircle" size={80} color="green" />
             </View>
@@ -41,12 +47,6 @@ const NetworkingScreen = () => {
 }
 
 const styles = StyleSheet.create({
-    headerImage:{
-        width: '100%',
-        height: 100,
-        overflow: 'hidden',
-        resizeMode: 'cover',
-    },
     titleContainer: {
         backgroundColor: '#2D3142',
     },
@@ -57,8 +57,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: '3%',
         paddingTop: '3%'
     },
-    section: {
-        padding: 12,
+    imageWrapper: {
+        height: 250,
+        width: 250,
+        overflow: 'hidden',
+        alignSelf: 'center',
+        margin: 10,
     },
     subheading: {
         fontSize: 18,
@@ -67,20 +71,6 @@ const styles = StyleSheet.create({
         color: '#F0FAEF',
         paddingHorizontal: '5%'
     },
-    companyInfo: {
-        fontSize: 16,
-        fontFamily: 'Barlow_400Regular',
-    },
-    categoryName1: {
-        fontSize: 26,
-        fontFamily: 'Syne_700Bold',
-        color: '#2D3142'
-    },
-    littleTab:{
-        backgroundColor: '#EAE8FF',
-        alignItems:'center',
-        
-   },
    viewCard:{
         backgroundColor: '#B0D7FE',
         marginTop:'5%',
@@ -89,14 +79,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: '5%'
 
-   },
-   categoryName2:{
-        fontFamily: 'Barlow_600SemiBold', 
-        color: '#F0FAEF', 
-        fontSize: 20, 
-        alignSelf: 'center', 
-        textAlign: 'center',
-        marginBottom: '3%'
    }
 })
 

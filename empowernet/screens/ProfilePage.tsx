@@ -8,20 +8,20 @@ const ProfilePage = () => {
         <Screen preset='scroll'>
             <SafeAreaView style={[styles.titleContainer, {flexDirection: 'row'}]}>
                 <Ionicons name="person-circle-outline" size={100} color="white" style={{paddingHorizontal: '7%', paddingTop: 15}} />
-                <View style={{flexDirection: 'column', alignContent: 'flex-start'}}>
-                    <Text style={[styles.titleText, {paddingHorizontal: '6%'}]}>
-                        Name
+                <View style={{flexDirection: 'column', alignContent: 'flex-start', width: '55%'}}>
+                    <Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 20, marginLeft: '2%'}]}>
+                        Jennifer Henry
                     </Text>
-                    <Text style={styles.subheading}>
+                    <Text Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 18, marginLeft: '2%'}]}>
                         Pronouns
                     </Text>
-                    <Text style={[styles.subheading]}>
+                    <Text Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 18, marginLeft: '2%'}]}>
                         Position/Job Title
                     </Text>
-                    <Text style={[styles.subheading]}>
+                    <Text Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 18, marginLeft: '2%'}]}>
                         Salary
                     </Text>
-                    <Text style={[styles.subheading]}>
+                    <Text Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 18, marginLeft: '2%'}]}>
                         Yrs. of Experience
                     </Text>
                     <View>
@@ -30,7 +30,6 @@ const ProfilePage = () => {
                             title="Add+ Button"
                             color="white"
                             accessibilityLabel="Add something...idk"
-                            
                         />
                     </View>
                 </View>
@@ -51,6 +50,17 @@ const ProfilePage = () => {
                     <Text>What an amazing Bio!</Text>
                 </View>
             </View>
+
+            <View>
+                <Text style={styles.section}>
+                    Salary and Years of Experience
+                </Text>
+                <View style={[styles.viewCard]}>
+                    <Text>$150,000</Text>
+                    <Text>7 years of experience</Text>
+                </View>
+            </View>
+
 
             <View>
                 <Text style={styles.section}>
@@ -112,6 +122,7 @@ const dummyWorkExp = [
     }
 ]
 
+
 const styles = StyleSheet.create({
     titleContainer: {
         backgroundColor: '#2D3142',
@@ -141,7 +152,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Barlow_400Regular',
     },
     viewCard:{
-        backgroundColor: '#B0D7FE',
+        backgroundColor: 'white',
         marginTop:'5%',
         marginHorizontal: '5%',
         marginBottom: '3%',

@@ -1,15 +1,33 @@
-import {View, Text, ImageBackground, SafeAreaView, ScrollView, TouchableOpacity, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, ImageBackground, SafeAreaView, ScrollView, TouchableOpacity, StyleSheet, Dimensions, Modal} from 'react-native';
 import Screen from '../components/Screen';
 import StarRating from 'react-native-star-rating-widget';
 import { Divider } from '@rneui/themed';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { useRoute } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons'; 
+import { useState  } from 'react';
 
-// MAKE THIS INTO A COMPONENT
+
+
+// this is a component now
+let newRatings = {};
+
 const bgImage = 'https://images.unsplash.com/photo-1462396240927-52058a6a84ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2873&q=80'
 const avg = 4.6
+let globalCompany = {}
+
+
 const RatingsView = () => {
-    
+    const [showRatingsModal, setRatingsModalVisible] = useState(false);
+    const [ratingWLB, setRatingWLB] = useState(0);
+    const [ratingCG, setRatingCG] = useState(0);
+    const [ratingComp, setRatingComp] = useState(0);
+    const [ratingCult, setRatingCult] = useState(0);
+    const [ratingDLGBT, setRatingDLGBT] = useState(0);
+    const [ratingDGen, setRatingDGen] = useState(0);
+    const [ratingDRace, setRatingDRace] = useState(0);
+    const [ratingDEdu, setRatingDEdu] = useState(0);
+
     return(
         <Screen preset="scroll">
             <View style={[styles.viewCard, {shadowColor: '#344966', shadowOpacity: 0.5, shadowOffset: {width: 0, height: 5}}]}>
@@ -130,9 +148,112 @@ const RatingsView = () => {
                     </View>
                 </View>
             </View>
+            <TouchableOpacity style={[styles.buttonCard]} onPress={()=>{setRatingsModalVisible(true)}}>
+                <Text style={[styles.categoryName2, {fontSize: 16}]}>Ever Worked Here?</Text>
+                <Text style={[styles.categoryName2]}>Rate {globalCompany["Company Name"]}</Text>
+            </TouchableOpacity>
+            <Modal  visible={showRatingsModal}
+                    transparent={true}
+                    animationType="slide"
+                    onRequestClose={() => {
+                    setRatingsModalVisible(false);
+            }}>
+                <View
+                    style={{
+                    alignSelf: 'center',
+                    backgroundColor: '#F0FAEF',
+                    justifyContent: 'center',
+                    marginTop: '30%',
+                    height: '70%',
+                    width: '85%',
+                    shadowOffset: {width: 0, height: 0},
+                    shadowColor: 'black',
+                    shadowOpacity: 0.9,
+                    shadowRadius: 20,
+                    borderRadius: 12,
+                    }}
+                >
+                <Text style={[styles.categoryName1,{alignSelf: 'center', fontSize: 22, marginTop: '5%'}]}>
+                    Rate {globalCompany["Company Name"]}
+                </Text>
+
+                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
+                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                        Compensation
+                    </Text>
+                    <StarRating rating={ratingComp} onChange={setRatingComp} 
+                                                starSize={30} 
+                                                color={styles.categoryName1.color}/>  
+                </View>
+
+                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
+                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                        Career Growth
+                    </Text>
+                    <StarRating rating={ratingCG} onChange={setRatingCG} 
+                                                starSize={30} 
+                                                color={styles.categoryName1.color}/>  
+                </View>
+
+                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
+                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                        Work-Life Balance
+                    </Text>
+                    <StarRating rating={ratingWLB} onChange={setRatingWLB} 
+                                                starSize={30} 
+                                                color={styles.categoryName1.color}/>  
+                </View>
+
+                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
+                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                        Company Culture
+                    </Text>
+                    <StarRating rating={ratingCult} onChange={setRatingCult} 
+                                                starSize={30} 
+                                                color={styles.categoryName1.color}/>  
+                </View>
+
+
+                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
+                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                        Gender Diversity
+                    </Text>
+                    <StarRating rating={ratingDGen} onChange={setRatingDGen} 
+                                                starSize={30} 
+                                                color={styles.categoryName1.color}/>  
+                </View>
+
+                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
+                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                        LGBTQ+ Diversity
+                    </Text>
+                    <StarRating rating={ratingDLGBT} onChange={setRatingDLGBT} 
+                                                starSize={30} 
+                                                color={styles.categoryName1.color}/>  
+                </View>
+
+
+                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
+                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                        Racial Diversity
+                    </Text>
+                    <StarRating rating={ratingDRace} onChange={setRatingDRace} 
+                                                starSize={30} 
+                                                color={styles.categoryName1.color}/>  
+                </View>
+       
+                <TouchableOpacity
+                    onPress={() => setRatingsModalVisible(false)}
+                    style={[styles.buttonCard]}>
+                <Text style={[styles.categoryName2, {color:'white'}]}>Close</Text>
+            </TouchableOpacity>
+            </View>
+            </Modal>
         </Screen>
     )
 }
+
+
 
 
 const ReviewsView = (props:{}) => {
@@ -146,42 +267,41 @@ const ReviewsView = (props:{}) => {
                 var avg = total / item.ratings.length;          
 
                 return (
-                    <View style={[styles.viewCard, {paddingLeft: '2%'}]}>
+                    <View style={[styles.viewCard, {backgroundColor: '#f0ebed', paddingLeft: '2%', shadowColor: 'black', shadowOpacity: 0.4, shadowOffset: {width:0, height:0}}]}>
                         <View style={{paddingHorizontal: '5%'}}>
-                            <Text style={{flexDirection: 'row'}}>
-                                Overall: <StarRating rating={avg} onChange={() => { }} starSize={14} color='black' starStyle={{ marginHorizontal: 2}} /> 
-                            </Text>
-                            <Text style={{ fontFamily: 'Barlow_600SemiBold' }}>
-                                Review:
-                            </Text>
-                            <Text>
-                                {item.content}
-                            </Text>
-
-                            <View style={{paddingTop: 5}}>
-                                <Text style={{alignSelf: 'flex-start'}}>
-                                    {item.role}
-                                </Text>
-                                <Text style={{alignSelf: 'flex-start'}}>
+                            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                                <StarRating rating={avg} onChange={() => { }} starSize={18} color='#2D3142' starStyle={{ marginHorizontal: 2, alignSelf: 'center', alignItems: 'center'}} /> 
+                                <Text style={{color: '#2D3142', fontFamily: 'Barlow_400Regular', fontSize: 14, textAlign: 'right', marginTop: '1%'}}>
                                     {item.date}
                                 </Text>
+                            </View>   
+                            <View style={{width: '100%'}}>
+                                <Text style={{color: '#2D3142',  fontFamily: 'Barlow_500Medium', fontSize: 16 }}>
+                                    {item.content}
+                                </Text>
+                            </View>  
+                            <View style={{paddingTop: 5, flexDirection: 'row', justifyContent: 'space-between'}}>
+                                <Text style={{color: '#2D3142', fontFamily: 'Barlow_400Regular', fontSize: 14, alignSelf: 'flex-start'}}>
+                                    Role: {item.role}
+                                </Text>
                             </View>
-                            
-                        </View> 
-                        <View style={{flexDirection: 'row', flexWrap:'wrap', alignItems: 'center'}}>
-                            {item.ratings.map((item2, index) => {
-                                return (
-                                    <View key={index} style={{ flexDirection: 'column', alignSelf: 'center', marginVertical: '2%', marginHorizontal: '3%' }}>
-                                        <Text style={{ fontFamily: 'Barlow_600SemiBold' }}>
-                                            {item2.category}
-                                        </Text>
-                                        <Text style={{ alignSelf: 'center' }}>
-                                            {item2.rating} out of 5
-                                        </Text>
-                                    </View>
-                                )
-                            })}
-                        </View>                       
+                            <View style={{flexDirection: 'row', flexWrap:'wrap',}}>
+                                {item.ratings.map((item2, index) => {
+                                    return (
+                                        <View key={index} style={{ flexDirection: 'row', alignSelf: 'center', justifyContent: 'space-between',}}>
+                                            <View style={{flexDirection: 'row', justifyContent: 'space-between', marginVertical: '2%',marginHorizontal:0, backgroundColor: '#2D3142', borderRadius: 10, paddingVertical: '2%', paddingHorizontal:'3%'}}>
+                                                <Text style={{ fontSize: 12, fontFamily: 'Barlow_500Medium', marginRight: '5%', color:'#f0ebed' }}>
+                                                    {item2.category}:
+                                                </Text>
+                                                <Text style={{ fontSize: 12, fontFamily: 'Barlow_500Medium', alignSelf: 'center', color:'#f0ebed' }}>
+                                                    {item2.rating}
+                                                </Text>
+                                            </View>
+                                        </View>
+                                    )
+                                })}
+                            </View>   
+                        </View>                     
                     </View>
                 )
             })}
@@ -207,7 +327,7 @@ const dummyCompany = {
             'ratings': [4, 5, 3.5, 4, 4.5, 3.5, 4, 4],
         },
         {
-            'category': 'Upward Mobility',
+            'category': 'Career Growth',
             'ratings': [4, 5, 5, 4, 4.5, 4, 5, 5, 5],
         },
         {
@@ -232,7 +352,7 @@ const dummyCompany = {
                     'rating': 3.5,
                 },
                 {
-                    'category': 'Upward Mobility',
+                    'category': 'Career Growth',
                     'rating': 3.5,
                 },
                 {
@@ -259,7 +379,7 @@ const dummyCompany = {
                     'rating': 3.5,
                 },
                 {
-                    'category': 'Upward Mobility',
+                    'category': 'Career Growth',
                     'rating': 5,
                 },
                 {
@@ -287,7 +407,7 @@ const dummyCompany = {
                     'rating': 2.5,
                 },
                 {
-                    'category': 'Upward Mobility',
+                    'category': 'Career Growth',
                     'rating': 1.5,
                 },
                 {
@@ -309,22 +429,14 @@ const dummyCompany = {
 const CompanyPage = ({navigation}) => {
     const route = useRoute();
     const company = route.params;
-    // const company =     {
-    //     "Company Name": "Apple Inc.",
-    //     "Industry": "Technology",
-    //     "Sector": "Consumer Electronics",
-    //     "HQ State": "California",
-    //     "Founding Year": "1976",
-    //     "Annual Revenue 2022-2023 (USD in Billions)": "387.53",
-    //     "Market Cap (USD in Trillions)": "2.52",
-    //     "Stock Name": "AAPL",
-    //     "Annual Income Tax in 2022-2023 (USD in Billions)": "18.314",
-    //     "Employee Size": "164000"
-    // }
+    globalCompany = company;
     return(
             <ScrollView contentContainerStyle={{flex: 1}}>
                 <SafeAreaView style={styles.titleContainer}>
-                    <TouchableOpacity onPress={()=>{console.log('LINK ME TO GO BACK')}}></TouchableOpacity>
+                    <TouchableOpacity onPress={()=>{navigation.navigate("CompaniesList")}} style={{flexDirection: 'row'}}>
+                        <Ionicons name="arrow-back" size={32} color="#F0FAEF" style={{marginLeft: '3%'}}/>
+                        <Text style={[styles.subheading, {color:'#F0FAEF', marginLeft: 0, paddingLeft: '1%', fontSize: 20}]}>Back to List</Text>
+                    </TouchableOpacity>
                     <Text style={styles.titleText}>{company["Company Name"]}</Text>
                     <Text style={[styles.subheading, {color:'#B0D7FE'}]}>{company["Sector"]}</Text>
                     <View style={{flexDirection: 'row', paddingBottom: '2%'}}>
@@ -401,7 +513,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
         
    },
-   viewCard:{
+    viewCard:{
         backgroundColor: '#B0D7FE',
         marginTop:'5%',
         marginHorizontal: '5%',
@@ -409,15 +521,26 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: '5%'
 
-   },
-   categoryName2:{
+    },
+    categoryName2:{
         fontFamily: 'Barlow_600SemiBold', 
         color: '#F0FAEF', 
         fontSize: 20, 
         alignSelf: 'center', 
         textAlign: 'center',
         marginBottom: '3%'
-   }
+    },
+    buttonCard:{
+        marginVertical:'5%',
+        marginHorizontal: '10%',
+        padding: '3%',
+        backgroundColor: '#870065',
+        borderRadius: 30, 
+        shadowColor: 'black', 
+        shadowOpacity: 0.8, 
+        shadowOffset: {width: 0, height: 1}
+
+    }
 })
 
 
