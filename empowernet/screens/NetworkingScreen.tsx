@@ -1,7 +1,9 @@
 import React, { useState, useMemo } from 'react'
-import { ImageBackground, Text, View, SafeAreaView, Button, StyleSheet } from 'react-native'
+import { ImageBackground, Text, View, SafeAreaView, Button, StyleSheet, TouchableOpacity } from 'react-native'
 import TinderCard from 'react-tinder-card';
 import dummyProfiles from '../data/dummyProfiles.json';
+import Screen from '../components/Screen';
+import { Ionicons } from '@expo/vector-icons'; 
 
 const db = dummyProfiles;
 
@@ -32,14 +34,14 @@ const NetworkingScreen = () => {
       const toBeRemoved = cardsLeft[cardsLeft.length - 1].name // Find the card object to be removed
       const index = db.map(person => person.name).indexOf(toBeRemoved) // Find the index of which to make the reference to
       alreadyRemoved.push(toBeRemoved) // Make sure the next card gets removed next time if this card do not have time to exit the screen
-      childRefs[index].current.swipe(dir) // Swipe the card!
+      //childRefs[index].current.swipe(dir) // Swipe the card!
     }
   }
 
   return (
-    <View>
+    <Screen>
         <SafeAreaView style={[styles.titleContainer, {marginBottom: '20%'}]}>
-            <Text style={styles.titleText}>Find others</Text>
+            <Text style={styles.titleText}>Connect With Others</Text>
 
         </SafeAreaView>
       
@@ -47,21 +49,35 @@ const NetworkingScreen = () => {
         
         {characters.map((profile, index) =>
           <TinderCard key={profile.name} onSwipe={(dir) => swiped(dir, profile.name)} onCardLeftScreen={() => outOfFrame(profile.name)}>
-            <View style={styles.card}>
+            <View style={[styles.card, ]}>
               <ImageBackground style={styles.cardImage} source={{uri: profile.image}}>
-                <Text style={styles.cardTitle}>{profile.name}</Text>
+                <View style={styles.cardTextContainer}>
+                    <Text style={styles.subheading}>{profile.name}</Text> 
+                    <Text style={[styles.infoText, {fontSize: 18}]}>{profile.pronouns}</Text> 
+                    <Text style={[styles.infoText, {fontFamily: 'Barlow_600SemiBold'}]}>{profile.position}</Text> 
+                    <Text style={[styles.infoText, {fontSize: 18, color: '#E6AACE'}]}>{profile.location}</Text>                   
+                </View>
               </ImageBackground>
+              <View style={{}}>
+                <Text style={[styles.infoText, {fontSize: 18, marginVertical: '5%'}]} numberOfLines={5} ellipsizeMode="tail">{profile.bio}</Text>
+              </View>
             </View>
           </TinderCard>
         )}
 
       </View>
-      <View style={styles.buttons}>
-        <Button onPress={() => swipe('left')} title='Swipe left!' />
-        <Button onPress={() => swipe('right')} title='Swipe right!' />
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={[styles.button]}>
+            <Ionicons name="arrow-undo" size={24} color="#ADACB5" />
+            <Text style={styles.buttonText}>Skip</Text>
+        </View>
+        <View style={[styles.button,]}>
+        <Ionicons name="arrow-redo" size={24} color="#ADACB5" />
+            <Text style={[styles.buttonText,]}>Connect</Text>
+        </View>
       </View>
-      {lastDirection ? <Text style={styles.infoText} key={lastDirection}>You swiped {lastDirection}</Text> : <Text style={styles.infoText}>Swipe a card or press a button to get started!</Text>}
-    </View>
+      {/* {lastDirection ? <Text style={styles.infoText} key={lastDirection}>You swiped {lastDirection}</Text> : <Text style={styles.infoText}>Swipe a card or press a button to get started!</Text>} */}
+    </Screen>
   )
 }
 
@@ -72,60 +88,80 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
-    header: {
-      color: '#000',
-      fontSize: 30,
-      marginBottom: 30,
-    },
     cardContainer: {
-      width: '90%',
-      maxWidth: 260,
-      height: 300,
-      alignSelf: 'center'
+      width: '100%',
+      maxWidth: 350,
+      height: 550,
+      alignSelf: 'center',
+      marginRight: '3%'
     },
     card: {
-      position: 'absolute',
-      backgroundColor: '#fff',
-      width: '100%',
-      maxWidth: 260,
-      height: 300,
-      shadowColor: 'black',
-      shadowOpacity: 0.2,
-      shadowOffset: {width: 0, height: 1},
-      borderRadius: 10,
-      resizeMode: 'cover',
+        position: 'absolute',
+        backgroundColor: '#2D3142',
+        width: '100%',
+        height: 550,
+        shadowColor: 'black',
+        shadowOpacity: 0.1,
+        shadowOffset: {width: 0, height: 1},
+        shadowRadius: 10,
+        borderRadius: 10,
+        resizeMode: 'cover',
+        marginHorizontal: '2%',
+        marginTop:'-15%',
+        paddingBottom: '40%',
+        padding: '4%',
+
+    },
+    cardTextContainer: {
+        marginTop: '80%',
+        flex: 1,
+        backgroundColor: 'rgba(45, 49, 66, 0.7)',
+        width: '100%',
+        height: '100%',
+        paddingHorizontal: '3%',
+        paddingTop: '3%',
+        paddingBottom: '3%',
+        alignSelf: 'center',
+        textAlign: 'center'
     },
     cardImage: {
       width: '100%',
       height: '100%',
       overflow: 'hidden',
-      borderRadius: 10,
+      borderTopLeftRadius: 10,
+      borderTopRightRadius: 10
     },
-    cardTitle: {
-      position: 'absolute',
-      bottom: 0,
-      margin: 10,
-      color: '#fff',
+    button: {
+        marginHorizontal: '10%',
+        borderRadius: 5,
+        marginTop: '-8%',
+        alignItems: 'center',
+
     },
-    buttons: {
-      margin: 20,
-      zIndex: -100,
+    buttonText: {
+        fontSize: 18,
+        color: '#ADACB5',
+        fontFamily: 'Syne_700Bold',
+        paddingHorizontal: '3%',
+        textAlign: 'center'
     },
     infoText: {
-      height: 28,
-      justifyContent: 'center',
-      display: 'flex',
-      zIndex: -100,
+      fontSize: 20,
+      fontFamily: 'Barlow_500Medium',
+      marginHorizontal: '7%',
+      color: '#EAE8FF',
+     
     },
     titleContainer: {
         backgroundColor: '#E6AACE',
     },
     titleText: {
-        fontSize: 40,
+        fontSize: 30,
         color: '#2D3142',
         fontFamily: 'Syne_700Bold',
         paddingHorizontal: '3%',
-        paddingTop: '3%'
+        paddingTop: '3%',
+        textAlign: 'center'
     },
     imageWrapper: {
         height: 250,
@@ -135,20 +171,12 @@ const styles = StyleSheet.create({
         margin: 10,
     },
     subheading: {
-        fontSize: 18,
-        fontFamily: 'Barlow_500Medium',
+        fontSize: 26,
+        fontFamily: 'Syne_700Bold',
         margin: 3,
-        color: '#F0FAEF',
+        color: '#EAE8FF',
         paddingHorizontal: '5%'
     },
-   viewCard:{
-        backgroundColor: '#B0D7FE',
-        marginTop:'5%',
-        marginHorizontal: '5%',
-        marginBottom: '3%',
-        borderRadius: 10,
-        padding: '5%'
 
-   }
   })
   

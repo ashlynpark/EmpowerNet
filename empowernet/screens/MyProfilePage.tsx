@@ -5,7 +5,7 @@ import { Image} from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { useState  } from 'react';
 
-const ProfilePage = ({navigation}) => {
+const MyProfilePage = ({navigation}) => {
     const route = useRoute();
     const profile = route.params;
 
@@ -195,4 +195,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default ProfilePage;
+export default MyProfilePage;

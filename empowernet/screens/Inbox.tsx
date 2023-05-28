@@ -1,4 +1,4 @@
-import {View, Text, ImageBackground, SafeAreaView, ScrollView, TouchableOpacity, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, ImageBackground, SafeAreaView, ScrollView, TouchableOpacity, StyleSheet, Dimensions, Button} from 'react-native';
 import Screen from '../components/Screen';
 import { Divider } from '@rneui/themed';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -30,11 +30,20 @@ const Inbox = ({navigation}) =>{
         <Screen>
             <SafeAreaView style={styles.titleContainer}>
                 <Text style={[styles.titleText, { alignSelf: 'center', padding: 10 }]}>
-                    Inbox
+                    ChatBox
                 </Text>
             </SafeAreaView>
 
-            <View>
+            <View style={{alignSelf: 'flex-end', margin: '3%', marginRight: '5%', borderWidth: 2, width: 200, borderRadius: 20}}>
+                <Button
+                    onPress={() => { }}
+                    title="Add new Chat"
+                    color="black"
+                    accessibilityLabel="Add new chat"
+                />
+            </View>
+
+            <View style={{marginTop: '3%'}}>
                 {friends.map((item, index) => {
                     return (
                         <ChatCard key={index} chat={item}/>
@@ -78,6 +87,18 @@ const friends = [
     {
         'profilePic': <MaterialCommunityIcons name="face-woman-profile" size={24} color="black" />,
         'name': 'Amanda'
+    },
+    {
+        'profilePic': <MaterialCommunityIcons name="face-man-profile" size={24} color="black" />,
+        'name': 'Santa'
+    },
+    {
+        'profilePic': <Ionicons name="person" size={24} color="black" />,
+        'name': 'Jennifer'
+    },
+    {
+        'profilePic': <MaterialCommunityIcons name="face-woman-profile" size={24} color="black" />,
+        'name': 'Alex'
     }
 ]
 
@@ -124,7 +145,6 @@ const styles = StyleSheet.create({
    },
    viewCard:{
         backgroundColor: '#B0D7FE',
-        marginTop:'5%',
         marginHorizontal: '5%',
         marginBottom: '3%',
         borderRadius: 10,

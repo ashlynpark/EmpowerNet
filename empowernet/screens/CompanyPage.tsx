@@ -266,7 +266,7 @@ const ReviewsView = (props:{}) => {
                 var avg = total / item.ratings.length;          
 
                 return (
-                    <View style={[styles.viewCard, {backgroundColor: '#f0ebed', paddingLeft: '2%', shadowColor: 'black', shadowOpacity: 0.4, shadowOffset: {width:0, height:0}}]}>
+                    <View style={[styles.viewCard, {backgroundColor: '#F0FAEF', paddingLeft: '2%', shadowColor: 'black', shadowOpacity: 0.4, shadowOffset: {width:0, height:0}}]}>
                         <View style={{paddingHorizontal: '5%'}}>
                             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                                 <StarRating rating={avg} onChange={() => { }} starSize={18} color='#2D3142' starStyle={{ marginHorizontal: 2, alignSelf: 'center', alignItems: 'center'}} /> 

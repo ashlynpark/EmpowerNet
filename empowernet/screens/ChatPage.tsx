@@ -9,7 +9,7 @@ const TextBubble = ({ aligned, text }) => {
     if (aligned === 'right') {
         return (
             <View style={{ flexDirection: 'row', alignSelf: 'flex-end' }}>
-                <View style={[styles.container, { width: "60%", backgroundColor: 'blue' }]}>
+                <View style={[styles.container, { width: "60%", backgroundColor: '#344966' }]}>
                     <Text style={styles.text}>{text}</Text>
                 </View>
                 <Ionicons name="person" size={24} color="black" style={{ alignSelf: 'center', margin: 10 }} />
@@ -19,7 +19,7 @@ const TextBubble = ({ aligned, text }) => {
         return (
             <View style={{ flexDirection: 'row', alignSelf: 'flex-start' }}>
                 <Ionicons name="person" size={24} color="black" style={{ alignSelf: 'center', margin: 10 }} />
-                <View style={[styles.container, { width: "60%", backgroundColor: 'grey' }]}>
+                <View style={[styles.container, { width: "60%", backgroundColor: '#ADACB5' }]}>
                     <Text style={styles.text}>{text}</Text>
                 </View>
             </View>
@@ -35,7 +35,7 @@ const ChatPage = ({ navigation }) => {
     const chat = route.params;
     globalChat = chat
     return (
-        <Screen preset='scroll'>
+        <Screen preset='scroll' style={{height: '100%'}}>
             <SafeAreaView style={styles.titleContainer}>
                 <TouchableOpacity onPress={() => { navigation.navigate("InboxPage") }} style={{ flexDirection: 'row' }}>
                     <Ionicons name="arrow-back" size={32} color="#F0FAEF" style={{ marginLeft: '3%' }} />
@@ -48,25 +48,27 @@ const ChatPage = ({ navigation }) => {
                 <TextBubble aligned='right' text="Hi! I heard that you were an intern at Google. How was it?" />
                 <TextBubble aligned='left' text="Yea that's right!" />
                 <TextBubble aligned='left' text="At first it was difficult but I soon got used to the work culture and learned a lot. Most people here are friendly. Beware of the few who aren't tho" />
-                <TextBubble aligned='right' text="How did you prepare for the interview?" />
+                <TextBubble aligned='right' text="Speaking of people, how is the diversity at Google?" />
+                <TextBubble aligned='left' text="Google has been working on promoting diversity within our ranks. As one of the most widely used applications in the World, Google has the advantage of having a voice that can be used speak out the importance of diversity. In essance, we believe diversity is highly important." />
+                <TextBubble aligned='right' text="On another note, how did you prepare for the interview?" />
                 <TextBubble aligned='left' text="Leetcode, all the way. Also, make sure to do research on the company. Google prefer hiring people who show an active interest in what they do." />
-
-                <TextBubble aligned='right' text="How did you prepare for the interview?" />
-                <TextBubble aligned='right' text="How did you prepare for the interview?" />
-                <TextBubble aligned='right' text="How did you prepare for the interview?" />
-                <TextBubble aligned='right' text="How did you prepare for the interview?" />
+                <TextBubble aligned='right' text="What is the average salary at Google?" />
+                <TextBubble aligned='left' text="Google is a top tech company so it should be no surprise that we have a high average salary." />
             </ScrollView>
 
-            <View style={{ flexDirection: 'row', alignSelf: 'center', backgroundColor: 'red', width: '90%'}}>
-                <View>
-                    <TextInput placeholder='Message' style={{ flex: 5, alignSelf: 'center', fontSize: 30, borderWidth: 2, width: '90%', margin: 20 }} />
+            <View style={{borderBottomColor: 'black', borderBottomWidth: StyleSheet.hairlineWidth}}/>
+            <View style={{ flexDirection: 'row', alignSelf: 'center'}}>
+                <View style={{ flex: 1, alignSelf: 'center', borderWidth: 2, margin: 20, padding: '2%', borderRadius: 20 }}>
+                    <TextInput placeholder='Message' style={{ fontSize: 22  }} />
                 </View>
-                <Button
-                    onPress={() => Alert.alert('Simple Button pressed')}
-                    title="Enter"
-                    color="black"
-                    accessibilityLabel="Add something...idk"
-                />
+                <View style={{alignSelf: 'center', borderWidth: 2, paddingRight: 10, marginRight: 20, padding: '1%', borderRadius: 20}}>
+                    <Button
+                        onPress={() => {}}
+                        title="Enter"
+                        color="black"
+                        accessibilityLabel="Send a message"
+                    />
+                </View>
             </View>
         </Screen>
 
@@ -84,9 +86,6 @@ const styles = StyleSheet.create({
         fontFamily: 'Syne_700Bold',
         paddingHorizontal: '3%',
         paddingTop: '3%'
-    },
-    section: {
-        padding: 12,
     },
     subheading: {
         fontSize: 18,
