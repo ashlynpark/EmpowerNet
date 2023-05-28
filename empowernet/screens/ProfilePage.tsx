@@ -7,19 +7,33 @@ const ProfilePage = () => {
     return(
         <Screen preset='scroll'>
             <SafeAreaView style={[styles.titleContainer, {flexDirection: 'column'}]}>
-                <Ionicons name="person-circle-outline" size={100} color="white" style={{paddingHorizontal: '7%', paddingTop: 15}} />
-                <View style={{flexDirection: 'column', alignContent: 'flex-start', width: '55%'}}>
-                    <Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 25, marginLeft: '2%'}]}>
+                <Ionicons name="person-circle-outline" size={125} color="white" style={{paddingHorizontal: '37%', paddingTop: 15}} />
+                <View style={{flexDirection: 'column', alignContent: 'flex-start'}}>
+                    <Text style={[styles.titleText, {opacity: 100, flexWrap: 'wrap', fontSize: 25, marginLeft: '25%'}]}>
                         Jennifer Henry
                     </Text>
                     
-                    <Text style={[styles.titleText, {opacity: 0.8, flexWrap: 'wrap', fontSize: 14, marginLeft: '2%'}]}>
+                    <Text style={[styles.titleText, {opacity: 0.8, flexWrap: 'wrap', fontSize: 16, marginLeft: '28.25%'}]}>
                         Software Developer
                     </Text>
                     
-                    <Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 14, marginLeft: '2%'}]}>
+                    <Text style={[styles.titleText, {opacity: 0.8, flexWrap: 'wrap', fontSize: 14, marginLeft: '41%'}]}>
                         She/Her
                     </Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Ionicons name="ios-location" size={20} color="white" style={{opacity: 0.9, marginLeft: '39%', paddingTop: 11}}/>
+                        <Text style={[styles.titleText, {opacity: 0.8, flexWrap: 'wrap', fontSize: 14}]}>
+                        Irvine, CA
+                        </Text>
+                     </View>
+                
+                {/*
+                <Ionicons name="person-circle-outline" color="white"/>
+                    {/*<Text style={[styles.titleText, {opacity: 0.8, flexWrap: 'wrap', fontSize: 14, marginLeft: '40%'}]}>
+                        Irvine, CA
+                    </Text>
+                    */}
+
                    
                     
                     <View>
@@ -41,13 +55,14 @@ const ProfilePage = () => {
                        5 years of experience
                 </Text>
                 
-                <Text style={styles.section}>
+                {/*<Text style={styles.section}>
                     Bio
-                </Text>
-                <View style={[styles.viewCard]}>
-                    <Text>Hey, I'm Jennifer! I'm a passionate software developer dedicated to creating more inclusive workplaces.
-                     I'm always seeking opportunities to connect with others who share this vision.</Text>
-                </View>
+                </Text>*/}
+                {/*<View style={[styles.viewCard]}>*/}
+                    <Text style={[{color: 'black', flexWrap: 'wrap', fontSize: 18, marginLeft: '2%'}]}>
+                        Hi there! I'm Jennifer, a software developer dedicated to creating more inclusive workplaces in the west coast.
+                    </Text>
+                {/*</View>*/}
                 
             </View>
 

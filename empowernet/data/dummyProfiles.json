@@ -4,15 +4,17 @@
         "pronouns" : "she/her",
         "position": "Marketing Manager",
         "bio" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex",
-        "industry" : "Health Informatics"
+        "industry" : "Health Informatics",
+        "image" : "https://www.abc27.com/wp-content/uploads/sites/55/2022/10/swifttaylor_AP_102122.jpg"
     },
     {
-        "name": "Emma Johnson",
+        "name": "Tina Snow",
         "pronouns": "she/her",
         "position": "Sales Representative",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "industry": "Retail",
-        "location": "Seattle, Washington"
+        "industry": "Fashion",
+        "location": "Houston, Texas",
+        "image" : "https://static.hiphopdx.com/2021/03/210306-megan-thee-stallion-1200x675.jpg"
     },
     {
         "name": "Michael Anderson",
@@ -20,7 +22,8 @@
         "position": "Software Engineer",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "industry": "Information Technology",
-        "location": "San Francisco, California"
+        "location": "San Francisco, California",
+        "image" : "https://i.insider.com/5fc69b02037cbd00186132ed?width=700"
     },
     {
         "name": "Sophia Lee",
@@ -28,15 +31,17 @@
         "position": "Human Resources Manager",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "industry": "Consulting",
-        "location": "New York City, New York"
+        "location": "New York City, New York",
+        "image" : "https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
     },
     {
-        "name": "Matthew Clark",
-        "pronouns": "he/him",
+        "name": "Macy Clark",
+        "pronouns": "she/her",
         "position": "Financial Analyst",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "industry": "Finance",
-        "location": "Chicago, Illinois"
+        "location": "Chicago, Illinois",
+        "image" : "https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=689&q=80"
     },
     {
         "name": "Olivia Wilson",
@@ -44,7 +49,8 @@
         "position": "Marketing Coordinator",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "industry": "Advertising",
-        "location": "Los Angeles, California"
+        "location": "Los Angeles, California",
+        "image" : "https://hai.stanford.edu/sites/default/files/styles/person_big/public/2020-03/mayer_marissa_headshot3.jpg?itok=HtQy4g6n"
     },
     {
         "name": "Ethan Martinez",
@@ -52,7 +58,8 @@
         "position": "Operations Manager",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "industry": "Logistics",
-        "location": "Dallas, Texas"
+        "location": "Dallas, Texas",
+        "image" : "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
     },
     {
         "name": "Ava Thompson",
@@ -60,15 +67,17 @@
         "position": "Graphic Designer",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "industry": "Creative Arts",
-        "location": "Miami, Florida"
+        "location": "Miami, Florida",
+        "image" : "https://pbs.twimg.com/profile_images/1110621726923120640/Cc41gOZL_400x400.jpg"
     },
     {
-        "name": "Liam Davis",
-        "pronouns": "he/him",
+        "name": "Lucy Davis",
+        "pronouns": "she/her",
         "position": "Project Manager",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "industry": "Construction",
-        "location": "Houston, Texas"
+        "industry": "Information Technology",
+        "location": "Houston, Texas",
+        "image" : "https://static01.nyt.com/images/2019/09/09/opinion/09Hunter1/09Hunter1-superJumbo.jpg"
     },
     {
         "name": "Isabella Rodriguez",
@@ -76,14 +85,16 @@
         "position": "Public Relations Specialist",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "industry": "Marketing",
-        "location": "Atlanta, Georgia"
+        "location": "Atlanta, Georgia",
+        "image" : "https://images.unsplash.com/photo-1542596768-5d1d21f1cf98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
     },
     {
-        "name": "Noah Thompson",
+        "name": "Noelle Lee",
         "pronouns": "he/him",
         "position": "Product Manager",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "industry": "Technology",
-        "location": "San Jose, California"
+        "location": "San Jose, California",
+        "image" : "https://images.unsplash.com/photo-1600481453173-55f6a844a4ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=675&q=80"
     }
 ]

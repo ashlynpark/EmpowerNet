@@ -9,7 +9,7 @@ const Home = () => {
         <Screen preset='scroll'>
             <SafeAreaView style={styles.titleContainer}>
                 <Text style={styles.titleText}>
-                    Welcome, User
+                    Welcome, Jennifer
                 </Text>
             </SafeAreaView>
             <View style={[styles.viewCard, {alignItems: 'center', justifyContent: 'center', borderWidth: 5, borderColor: 'white'}]}>
