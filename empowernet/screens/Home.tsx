@@ -56,8 +56,9 @@ const Home = () => {
                         </Text>
                     </View>    
                     <View style={{alignItems: 'center', justifyContent: 'center', flex: 2, marginLeft:'5%', }}>
-                        <Text style={[styles.categoryName1, {marginBottom: 0, padding: 0, fontSize: 20, color: '#0D1821'}]}>
-                            Company Name
+                        <Text style={[styles.categoryName1, {alignSelf: 'center', marginBottom: 0, padding: 0, fontSize: 20, color: '#0D1821'}]}>
+                            {'\n'}
+                            Accenture
                         </Text>
                         <Text style={{fontFamily: 'Barlow_500Medium', marginBottom: 0, fontSize: 16, color: '#0D1821'}}>
                             Tech Industry

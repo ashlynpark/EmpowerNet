@@ -5,6 +5,9 @@ import { Image} from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { useState  } from 'react';
 
+
+const bgImage = "https://images.unsplash.com/photo-1484291470158-b8f8d608850d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+const profileImg = "https://images.unsplash.com/photo-1531123414780-f74242c2b052?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
 const MyProfilePage = ({navigation}) => {
     const route = useRoute();
     const profile = route.params;
@@ -12,28 +15,32 @@ const MyProfilePage = ({navigation}) => {
 
     return(
         <Screen style={{backgroundColor: '#F0FAEF'}} preset='scroll'>
-            <SafeAreaView>
-                <ImageBackground source={{}}>
-                <Ionicons name="person-circle-outline" size={125} color="white" style={{paddingHorizontal: '37%', paddingTop: 15}} />
-                <View style={{flexDirection: 'column', alignContent: 'flex-start'}}>
-                    <Text style={[styles.titleText, {opacity: 100, flexWrap: 'wrap', fontSize: 25, alignSelf: 'center'}]}>
-                        Jennifer Henry
-                    </Text>
+            <View>
+                <ImageBackground source={{uri: bgImage}} style={{}}>
                     
-                    <Text style={[styles.titleText, {opacity: 0.8, flexWrap: 'wrap', fontSize: 16, alignSelf: 'center'}]}>
-                        Software Developer
-                    </Text>
-                    
-                    <Text style={[styles.titleText, {opacity: 0.8, flexWrap: 'wrap', fontSize: 14, alignSelf: 'center'}]}>
-                        She/Her
-                    </Text>
-                    <View style={{ flexDirection: 'row' }}>
-                        <Ionicons name="ios-location" size={20} color="white" style={{opacity: 0.9, marginLeft: '39%', paddingTop: 11}}/>
-                        <Text style={[styles.titleText, {opacity: 0.8, flexWrap: 'wrap', fontSize: 14}]}>
-                        Irvine, CA
+                    <View style={{flexDirection: 'column', alignContent: 'center', flex:1, backgroundColor: 'rgba(45, 49, 66, 0.6)',}}>
+                        <View style={styles.profPicContainer}>
+                            <Image source={{uri: profileImg}} style={styles.profPic}/>
+                        </View> 
+                            
+                        <Text style={[styles.titleText, {opacity: 100, marginBottom: 0, paddingBottom: 0,flexWrap: 'wrap', fontSize: 28, alignSelf: 'center'}]}>
+                            Jennifer Henry
                         </Text>
-                     </View>
-                </View>
+                        
+                        <Text style={[styles.subtitleText, ]}>
+                            Software Developer
+                        </Text>
+                        
+                        <Text style={[styles.subtitleText]}>
+                            She/Her
+                        </Text>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', alignSelf: 'center' }}>
+                            <Ionicons name="ios-location" size={20} color="white" style={{opacity: 0.9, paddingTop: '1%', marginRight:-2}}/>
+                            <Text style={[styles.subtitleText, {opacity: 0.8, flexWrap: 'wrap', fontSize: 16}]}>
+                            Irvine, CA
+                            </Text>
+                        </View>
+                    </View>
                 </ImageBackground>
                 {/*
                 <Ionicons name="person-circle-outline" color="white"/>
@@ -42,10 +49,10 @@ const MyProfilePage = ({navigation}) => {
                     </Text>
                     */}
                     
-                    <TouchableOpacity style={{borderLeftWidth: 1, borderRightWidth: 1}} >
-                       <Text>Add Connection</Text>
+                    <TouchableOpacity style={{backgroundColor: 'blue', width: '30%', alignSelf: 'center', marginTop: '3%',borderRadius: 10}} >
+                       <Text style={styles.subheading}>Edit Profile</Text>
                     </TouchableOpacity>
-            </SafeAreaView>
+            </View>
             
             <View>
                 <View style={{alignSelf: 'center', marginTop: '3%'}}>
@@ -158,6 +165,13 @@ const styles = StyleSheet.create({
         paddingHorizontal: '3%',
         paddingTop: '3%'
     },
+    subtitleText: {
+        fontSize: 18,
+        color: '#F0FAEF',
+        fontFamily: 'Syne_700Bold',
+        paddingHorizontal: '3%',
+        alignSelf: 'center'
+    },
     subheading: {
         fontSize: 18,
         fontFamily: 'Barlow_500Medium',
@@ -175,6 +189,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontFamily: 'Barlow_400Regular',
     },
+    
     viewCard:{
         backgroundColor: 'white',
         marginTop:'5%',
@@ -192,6 +207,21 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.8,
         shadowOffset: {width: 0, height: 1}
     },
+    profPicContainer: {
+        width: 110,
+        height: 110,
+        borderRadius: 50,
+        overflow: 'hidden',
+        alignSelf: 'center',
+        marginTop: '15%',
+        borderWidth: 3,
+        borderColor: '#F0FAEF'
+      },
+      profPic: {
+        width: '100%',
+        height: '100%',
+        resizeMode: 'cover',
+      },
 })
 
 

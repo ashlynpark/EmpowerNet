@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { AntDesign, Entypo, MaterialCommunityIcons, Feather, FontAwesome5, Ionicons } from '@expo/vector-icons';
+import { AntDesign, Entypo, MaterialCommunityIcons, Feather, FontAwesome5, Ionicons, FontAwesome } from '@expo/vector-icons';
 import { View } from 'react-native';
 
 
@@ -16,7 +16,7 @@ import MyProfilePage from "../screens/MyProfilePage";
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
     return (
-        <Tab.Navigator screenOptions={{ tabBarStyle: { backgroundColor: '#344966' }}}>
+        <Tab.Navigator screenOptions={{ tabBarStyle: { backgroundColor: '#0D1821', paddingTop: '2%' }}}>
             <Tab.Screen
                 name="Home"
                 component={Home}
@@ -24,45 +24,11 @@ const TabNavigator = () => {
                     headerShown: false,
                     tabBarIcon: ({focused}) => {
                     return(
-                        <View style={{
-                            width: 30,
-                            height: 30
-                            }}>
+                        <View style={{ width: 30, height: 30 }}>
                             <Entypo name="home" size={20} color={focused ? '#BFCC94' : '#F0F4EF'} style={{position: "absolute", left: 30/2 - 11, top: 30/2 - 12}}/>
                         </View>)},
                     tabBarLabel: "Home",
-                })}
-            />
-            <Tab.Screen
-                name="Companies"
-                component={CompanyNavigator}
-                options={ () => ({
-                    headerShown: false,
-                    tabBarIcon: ({focused}) => {
-                    return(
-                        <View style={{
-                            width: 30,
-                            height: 30,
-                            }}>
-                            <FontAwesome5 name="circle" size={20} color={focused ? '#BFCC94' : '#F0F4EF'} style={{position: "absolute", left: 30/2 - 11, top: 30/2 - 12}}/>
-                        </View>)},
-                    tabBarLabel: "Companies",
-                })}
-            />
-            <Tab.Screen
-                name="Profile"
-                component={MyProfilePage}
-                options={ () => ({
-                    headerShown: false,
-                    tabBarIcon: ({focused}) => {
-                    return(
-                        <View style={{
-                            width: 30,
-                            height: 30,
-                            }}>
-                            <Ionicons name="person" size={24} color={focused ? '#BFCC94' : '#F0F4EF'} />
-                        </View>)},
-                    tabBarLabel: "Profile",
+                    tabBarActiveTintColor: '#BFCC94'
                 })}
             />
             <Tab.Screen
@@ -72,12 +38,25 @@ const TabNavigator = () => {
                     headerShown: false,
                     tabBarIcon: ({focused}) => {
                     return(
-                        <View style={{
-                            width: 30,
-                            height: 30,}}>
+                        <View style={{ width: 30, height: 30 }}>
                             <Entypo name="network" size={24} color={focused ? '#BFCC94' : '#F0F4EF'} />
                         </View>)},
                     tabBarLabel: "Network",
+                    tabBarActiveTintColor: '#BFCC94'
+                })}
+            />
+            <Tab.Screen
+                name="Companies"
+                component={CompanyNavigator}
+                options={ () => ({
+                    headerShown: false,
+                    tabBarIcon: ({focused}) => {
+                    return(
+                        <View style={{width: 30, height: 30}}>
+                            <FontAwesome name="building" size={20} color={focused ? '#BFCC94' : '#F0F4EF'}/>
+                        </View>)},
+                    tabBarLabel: "Companies",
+                    tabBarActiveTintColor: '#BFCC94'
                 })}
             />
             <Tab.Screen
@@ -87,13 +66,25 @@ const TabNavigator = () => {
                     headerShown: false,
                     tabBarIcon: ({focused}) => {
                     return(
-                        <View style={{
-                            width: 30,
-                            height: 30,
-                            }}>
-                            <FontAwesome5 name="square" size={20} color={focused ? '#BFCC94' : '#F0F4EF'} style={{position: "absolute", left: 30/2 - 11, top: 30/2 - 12}}/>
+                        <View style={{ width: 30, height: 30 }}>
+                            <Entypo name="message" size={24} color={focused ? '#BFCC94' : '#F0F4EF'} />
                         </View>)},
                     tabBarLabel: "Inbox",
+                    tabBarActiveTintColor: '#BFCC94'
+                })}
+            />
+            <Tab.Screen
+                name="Profile"
+                component={MyProfilePage}
+                options={ () => ({
+                    headerShown: false,
+                    tabBarIcon: ({focused}) => {
+                    return(
+                        <View style={{ width: 30, height: 30 }}>
+                            <Ionicons name="person" size={24} color={focused ? '#BFCC94' : '#F0F4EF'} />
+                        </View>)},
+                    tabBarLabel: "Profile",
+                    tabBarActiveTintColor: '#BFCC94'
                 })}
             />
             
