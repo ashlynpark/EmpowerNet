@@ -1,10 +1,16 @@
-import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, SafeAreaView} from 'react-native';
 import Screen from '../components/Screen';
 import { MaterialCommunityIcons, Ionicons, AntDesign } from '@expo/vector-icons'; 
+import YourNetworkNavigator from '../navigation/yournetworknavigator';
+import { useNavigation } from '@react-navigation/native';
 
 
+const Home = ({}) => {
+    const navigation = useNavigation()
+    const goToNetwork = () => {
+        navigation.navigate('YourNetwork');
+    };
 
-const Home = () => {
     return(
         <Screen preset='scroll'>
             <SafeAreaView style={styles.titleContainer}>
@@ -21,12 +27,12 @@ const Home = () => {
                 </Text>
             </View>
             <View style={{flexDirection: 'row', marginVertical: '5%'}}>
-                <View style={{alignItems: 'center', justifyContent: 'center', backgroundColor:'#B0D7FE', padding: '3%', borderRadius: 15, flex: 1, marginLeft: '6%', marginHorizontal: '3%', shadowColor: 'black', shadowOpacity: 0.5, shadowOffset: {width: 0, height: 1}}}>
+                <TouchableOpacity onPress={goToNetwork} style={{alignItems: 'center', justifyContent: 'center', backgroundColor:'#B0D7FE', padding: '3%', borderRadius: 15, flex: 1, marginLeft: '6%', marginHorizontal: '3%', shadowColor: 'black', shadowOpacity: 0.5, shadowOffset: {width: 0, height: 1}}}>
                     <Ionicons name="people" size={40} color="#2D3142" />
                     <Text style={[styles.categoryName2, {color: '#2D3142'}]}>
                         Your Network
                     </Text>
-                </View>  
+                </TouchableOpacity> 
                 <View style={{alignItems: 'center', justifyContent: 'center', backgroundColor:'#E6AACE', padding: '3%', borderRadius: 15, flex: 1, marginRight: '6%',marginHorizontal: '3%', shadowColor: 'black', shadowOpacity: 0.5, shadowOffset: {width: 0, height: 1}}}>
                     <AntDesign name="heart" size={40} color="#2D3142" />
                     <Text style={[styles.categoryName2, {color: '#2D3142'}]}>

@@ -12,6 +12,8 @@ import CompanyNavigator from "./company-navigator";
 import InboxNavigator from "./inbox-navigator";
 import NetworkNavigator from "./network-navigator";
 import MyProfilePage from "../screens/MyProfilePage";
+import YourNetwork from "../screens/YourNetwork";
+import YourNetworkNavigator from "./yournetworknavigator";
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
@@ -19,7 +21,7 @@ const TabNavigator = () => {
         <Tab.Navigator screenOptions={{ tabBarStyle: { backgroundColor: '#0D1821', paddingTop: '2%' }}}>
             <Tab.Screen
                 name="Home"
-                component={Home}
+                component={YourNetworkNavigator}
                 options={ () => ({
                     headerShown: false,
                     tabBarIcon: ({focused}) => {

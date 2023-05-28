@@ -1,39 +1,42 @@
-import {View, Text, ImageBackground, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, Image, ImageBackground, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 import Screen from '../components/Screen';
 import StarRating from 'react-native-star-rating-widget';
 import { Divider } from '@rneui/themed';
-import top_50_USA_tech_companies from '../data/top_50_USA_tech_companies.json';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign, Entypo, MaterialCommunityIcons, Feather, FontAwesome5, Ionicons, FontAwesome } from '@expo/vector-icons';
+import dummyProfiles from '../data/dummyProfiles.json';
 
 
 const bgImage = 'https://images.unsplash.com/photo-1462396240927-52058a6a84ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2873&q=80'
 
 // const companyName = top_50_USA_tech_companies["Company Name"]
-const companies = top_50_USA_tech_companies;
+const profiles = dummyProfiles;
 
-const CompanyCard = (props:{company: any}) => {
+const ProfileCard = (props:{profile: any}) => {
     const navigation = useNavigation();
 
     const goToProfile = () => {
-        const data = props.company;
-        navigation.navigate('Company', data);
+        const data = props.profile;
+        navigation.navigate('userProfile', data);
     };
 
     return(
         <TouchableOpacity style={styles.viewCard} onPress={goToProfile}>
             <View style={{flexDirection: 'row'}}>
-                {/* INSERT LOGO HERE IF WE GET TO IT */}
-                <View style={{flexDirection: 'column', flex: 1}}>
+                <View style={[styles.profPicContainer, {flex: 1}]}>
+                    <Image source={{uri: props.profile.image}} style={styles.profPic}/>
+                </View> 
+
+                <View style={{flexDirection: 'column', flex: 3, marginLeft: '5%'}}>
                     <Text style={styles.companyName}>
-                        {props.company["Company Name"]}
-                    </Text>  
+                        {props.profile.name}
+                    </Text>
                     <Text style={styles.subheading}>
-                        {props.company["Sector"]}
-                    </Text> 
+                        {props.profile.pronouns}
+                    </Text>    
                     <Text style={styles.subheading}>
-                        {props.company["Employee Size"]} employees
-                    </Text>                                  
+                        {props.profile.position}
+                    </Text>                                 
                 </View>
 
             </View>
@@ -43,17 +46,23 @@ const CompanyCard = (props:{company: any}) => {
 
 }
 
-const CompaniesList = () => {
+const YourNetwork = ({navigation}) => {
     return(
         <Screen preset='scroll'>
             <SafeAreaView style={styles.titleContainer}>
-                <Text style={styles.titleText}>Top Companies</Text>
+                    <SafeAreaView style={{justifyContent: 'flex-start'}}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate("home")}} style={{flexDirection: 'row', alignSelf: 'flex-start', justifyContent: 'flex-start'}}>
+                        <Ionicons name="arrow-back" size={25} color="#F0FAEF" style={{marginLeft: '3%'}}/>
+                        <Text style={[styles.subheading, {marginBottom: 0, color:'#F0FAEF', marginRight: '50%', paddingLeft: '1%', fontSize: 20}]}>Back to Home</Text>
+                    </TouchableOpacity>
+                    </SafeAreaView>
+                <Text style={styles.titleText}>Your Network</Text>
             </SafeAreaView>
             <Search/>
             <View>
-                {companies.map((item, index) => {
+                {profiles.map((item, index) => {
                     return(
-                        <CompanyCard key={index} company={item}/>
+                        <ProfileCard key={index} profile={item}/>
                     )
                 })}
             </View>
@@ -64,7 +73,7 @@ const CompaniesList = () => {
 const Search = () => {
     const SearchButton = () => {
         return(
-            <View style={[styles.buttonContainer, {backgroundColor: '#A6C48A'}]}>
+            <View style={[styles.buttonContainer, {backgroundColor: '#91145f'}]}>
                 <FontAwesome5 name="search" size={22} color="white" />
             </View> 
     
@@ -101,7 +110,7 @@ const styles = StyleSheet.create({
         resizeMode: 'cover'
     },
     titleContainer: {
-        backgroundColor: '#BFCC94',
+        backgroundColor: '#3c2b4f',
         alignItems: 'center',
         shadowColor: 'black',
         shadowOpacity: 0.4,
@@ -109,7 +118,7 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontSize: 40,
-        color: '#344966',
+        color: '#EAE8FF',
         fontFamily: 'Syne_700Bold',
         paddingVertical: '3%',
     },
@@ -119,7 +128,7 @@ const styles = StyleSheet.create({
     subheading: {
         fontSize: 18,
         fontFamily: 'Barlow_500Medium',
-        color: 'black',
+        color: '#91145f',
     },
     companyInfo: {
         fontSize: 16,
@@ -128,7 +137,7 @@ const styles = StyleSheet.create({
     companyName: {
         fontSize: 18,
         fontFamily: 'Syne_700Bold',
-        color: '#2D3142'
+        color: '#3c2b4f'
     },
     littleTab:{
         backgroundColor: '#EAE8FF',
@@ -136,7 +145,7 @@ const styles = StyleSheet.create({
         
    },
    viewCard:{
-        backgroundColor: '#F0FAEF',
+        backgroundColor: '#EAE8FF',
         marginTop:'2%',
         marginHorizontal: '5%',
         marginBottom: '2%',
@@ -184,8 +193,22 @@ const styles = StyleSheet.create({
         borderBottomEndRadius: 7,
         
     },
+    profPicContainer: {
+        width: 80,
+        height: 80,
+        borderRadius: 70,
+        overflow: 'hidden',
+        alignSelf: 'center',
+        borderWidth: 3,
+        borderColor: '#F0FAEF'
+      },
+      profPic: {
+        width: '100%',
+        height: '100%',
+        resizeMode: 'cover',
+      },
 })
 
 
 
-export default CompaniesList;
+export default YourNetwork;

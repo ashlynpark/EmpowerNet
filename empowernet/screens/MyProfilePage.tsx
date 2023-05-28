@@ -49,26 +49,25 @@ const MyProfilePage = ({navigation}) => {
                     </Text>
                     */}
                     
-                    <TouchableOpacity style={{backgroundColor: 'blue', width: '30%', alignSelf: 'center', marginTop: '3%',borderRadius: 10}} >
-                       <Text style={styles.subheading}>Edit Profile</Text>
+                    <TouchableOpacity style={{backgroundColor: '#344966', width: '30%', alignSelf: 'center', marginTop: '3%',borderRadius: 10}} >
+                       <Text style={[styles.subheading, {textAlign: 'center'}]}>Edit Profile</Text>
                     </TouchableOpacity>
             </View>
             
             <View>
-                <View style={{alignSelf: 'center', marginTop: '3%'}}>
-                    <Text style={[styles.titleText, {color: 'black', flexWrap: 'wrap', fontSize: 18, marginLeft: '2%'}]}>
-                        $150,000
-                    </Text>
-                </View>
-                <View style={{alignSelf: 'center'}}>
-                <Text style={[styles.titleText, {color: 'black', flexWrap: 'wrap', fontSize: 18, marginLeft: '2%'}]}>
-                       5 years of experience
-                </Text>
-                </View>
                
                 <View style={{marginLeft: '7%', marginRight: '3%', marginTop: '3%'}}>
-                    <Text style={[{color: 'black', flexWrap: 'wrap', fontSize: 18, textAlign: 'center'}]}>
+                    <Text style={[{fontFamily: 'Barlow_500Medium', color: 'black', flexWrap: 'wrap', fontSize: 18, textAlign: 'center'}]}>
                         Hi there! I'm Jennifer, a software developer dedicated to creating a more inclusive workplaces in the west coast.
+                    </Text>
+                </View>
+
+                <View style={{alignSelf: 'center', marginTop: '3%'}}>
+                    <Text style={{fontFamily: 'Barlow_400Regular', color: 'black', flexWrap: 'wrap', fontSize: 16, textAlign: 'center'}}>
+                        Salary: $150,000
+                    </Text>
+                    <Text style={{fontFamily: 'Barlow_400Regular', color: 'black', flexWrap: 'wrap', fontSize: 16, textAlign: 'center'}}>
+                       Years of experience: 5
                     </Text>
                 </View>
                 
@@ -96,7 +95,7 @@ const MyProfilePage = ({navigation}) => {
                     {dummyWorkExp.map((item, index) => {
                         return (
                             <View key={index} style={{paddingVertical: '2%'}}>
-                                <Text>
+                                <Text style={{fontFamily: 'Barlow_400Regular', color: 'black', flexWrap: 'wrap', fontSize: 16,}}>
                                     {item.company} ({item.jobTitle})
                                 </Text>
                                 <Text>
@@ -114,11 +113,14 @@ const MyProfilePage = ({navigation}) => {
                     Education
                 </Text>
                 <View style={[styles.viewCard, {}]}>
-                    <Text style={[styles.titleText, {color: 'black', fontSize: 15, alignSelf: 'center'}]}>
+                    <Text style={{fontFamily: 'Barlow_500Medium', color: 'black', flexWrap: 'wrap', fontSize: 17}}>
                         University of California Irvine
                     </Text>
-                    <Text style={[styles.titleText, {color: 'black', fontSize: 15, alignSelf: 'center'}]}>
+                    <Text style={{fontFamily: 'Barlow_400Regular', color: 'black', flexWrap: 'wrap', fontSize: 16}}>
                         Computer Science, B.S.
+                    </Text>
+                    <Text style={{fontFamily: 'Barlow_400Regular', color: 'black', flexWrap: 'wrap', fontSize: 15}}>
+                        September 2015 - June 2019
                     </Text>
                 </View>
             </View>

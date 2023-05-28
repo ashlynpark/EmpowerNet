@@ -4,6 +4,7 @@ import TinderCard from 'react-tinder-card';
 import dummyProfiles from '../data/dummyProfiles.json';
 import Screen from '../components/Screen';
 import { Ionicons } from '@expo/vector-icons'; 
+import { useNavigation } from '@react-navigation/native';
 
 const db = dummyProfiles;
 
@@ -38,6 +39,15 @@ const NetworkingScreen = () => {
     }
   }
 
+    const navigation = useNavigation();
+
+    // const goToProfile = (profile) => {
+    //     const data = profile;
+    //     console.log('profile')
+    //     navigation.navigate('userProfile', data);
+    // };
+  
+
   return (
     <Screen>
         <SafeAreaView style={[styles.titleContainer, {marginBottom: '20%'}]}>
@@ -47,23 +57,26 @@ const NetworkingScreen = () => {
       
       <View style={styles.cardContainer}>
         
-        {characters.map((profile, index) =>
-          <TinderCard key={profile.name} onSwipe={(dir) => swiped(dir, profile.name)} onCardLeftScreen={() => outOfFrame(profile.name)}>
-            <View style={[styles.card, ]}>
-              <ImageBackground style={styles.cardImage} source={{uri: profile.image}}>
-                <View style={styles.cardTextContainer}>
-                    <Text style={styles.subheading}>{profile.name}</Text> 
-                    <Text style={[styles.infoText, {fontSize: 18}]}>{profile.pronouns}</Text> 
-                    <Text style={[styles.infoText, {fontFamily: 'Barlow_600SemiBold'}]}>{profile.position}</Text> 
-                    <Text style={[styles.infoText, {fontSize: 18, color: '#E6AACE'}]}>{profile.location}</Text>                   
-                </View>
-              </ImageBackground>
-              <View style={{}}>
-                <Text style={[styles.infoText, {fontSize: 18, marginVertical: '5%'}]} numberOfLines={5} ellipsizeMode="tail">{profile.bio}</Text>
-              </View>
-            </View>
-          </TinderCard>
-        )}
+        {characters.map((profile, index) => 
+            // <TouchableOpacity key={profile.name}  onPress={() => {goToProfile(profile)}}>
+                <TinderCard key={profile.name} onSwipe={(dir) => swiped(dir, profile.name)} onCardLeftScreen={() => outOfFrame(profile.name)} preventSwipe={['up', 'down']}>
+                    <View style={[styles.card, ]}>
+                    <ImageBackground style={styles.cardImage} source={{uri: profile.image}}>
+                        <View style={styles.cardTextContainer}>
+                            <Text style={styles.subheading}>{profile.name}</Text> 
+                            <Text style={[styles.infoText, {fontSize: 18}]}>{profile.pronouns}</Text> 
+                            <Text style={[styles.infoText, {fontFamily: 'Barlow_600SemiBold'}]}>{profile.position}</Text> 
+                            <Text style={[styles.infoText, {fontSize: 18, color: '#E6AACE'}]}>{profile.location}</Text>                   
+                        </View>
+                    </ImageBackground>
+                    <TouchableOpacity style={{}} onPress={() => {}}>
+                        <Text style={[styles.infoText, {fontSize: 18, marginVertical: '5%'}]} numberOfLines={5} ellipsizeMode="tail">{profile.bio}</Text>
+                    </TouchableOpacity>
+                    </View>
+                </TinderCard>
+            // </TouchableOpacity>
+        )}                
+
 
       </View>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>

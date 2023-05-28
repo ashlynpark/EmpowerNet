@@ -14,6 +14,11 @@ let newRatings = {};
 
 const bgImage = 'https://images.unsplash.com/photo-1462396240927-52058a6a84ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2873&q=80'
 const avg = 4.6
+const avgWLB = 4.1
+const avgComp = 4.7
+const avgCG = 4.5
+const avgCult = 4
+const avgDiv = 3
 let globalCompany = {}
 
 
@@ -62,8 +67,8 @@ const RatingsView = () => {
                 
                 <View style={{flexDirection: 'row'}}>
                     <View style={{flexDirection: 'column', alignItems: 'center',  flex: 1, backgroundColor: '#F0FAEF', paddingVertical: '2%', marginHorizontal: '5%', borderRadius: 4}}>
-                            <Text style={{color: '#2D3142', marginTop: -5, fontSize: 30, fontFamily: 'Barlow_600SemiBold'}}>3.5</Text>
-                            <StarRating rating={avg} onChange={()=> {}} 
+                            <Text style={{color: '#2D3142', marginTop: -5, fontSize: 30, fontFamily: 'Barlow_600SemiBold'}}>{avgComp}</Text>
+                            <StarRating rating={avgComp} onChange={()=> {}} 
                                     starSize={18} 
                                     starStyle={{marginHorizontal: 0.4}}
                                     color='#2D3142'
@@ -75,8 +80,8 @@ const RatingsView = () => {
                             <Text style={{color: '#344966', margin: 0, fontSize: 16, fontFamily: 'Barlow_500Medium'}}>{dummyCompany.ratings.length} ratings</Text>
                     </View>
                     <View style={{flexDirection: 'column', alignItems: 'center', flex: 1, backgroundColor: '#F0FAEF', paddingVertical: '2%', marginHorizontal: '5%', borderRadius: 4}}>
-                            <Text style={{color: '#2D3142', marginTop: -5, fontSize: 30, fontFamily: 'Barlow_600SemiBold'}}>3.5</Text>
-                            <StarRating rating={avg} onChange={()=> {}} 
+                            <Text style={{color: '#2D3142', marginTop: -5, fontSize: 30, fontFamily: 'Barlow_600SemiBold'}}>{avgCG}</Text>
+                            <StarRating rating={avgCG} onChange={()=> {}} 
                                     starSize={18} 
                                     starStyle={{marginHorizontal: 0.4}}
                                     color='#2D3142'
@@ -100,8 +105,8 @@ const RatingsView = () => {
                 </View>
                 <View style={{flexDirection: 'row',}}>
                     <View style={{flexDirection: 'column', alignItems: 'center',  flex: 1, backgroundColor: '#EAE8FF', paddingVertical: '2%', marginHorizontal: '5%', borderRadius: 4}}>
-                            <Text style={{color: '#2D3142', marginTop: -5, fontSize: 30, fontFamily: 'Barlow_600SemiBold'}}>3.5</Text>
-                            <StarRating rating={avg} onChange={()=> {}} 
+                            <Text style={{color: '#2D3142', marginTop: -5, fontSize: 30, fontFamily: 'Barlow_600SemiBold'}}>{avgWLB}</Text>
+                            <StarRating rating={avgWLB} onChange={()=> {}} 
                                     starSize={18} 
                                     starStyle={{marginHorizontal: 0.4}}
                                     color='#2D3142'
@@ -113,8 +118,8 @@ const RatingsView = () => {
                             <Text style={{color: '#344966', margin: 0, fontSize: 16, fontFamily: 'Barlow_500Medium'}}>{dummyCompany.ratings.length} ratings</Text>
                     </View>
                     <View style={{flexDirection: 'column', alignItems: 'center', flex: 1, backgroundColor: '#EAE8FF', paddingVertical: '2%', marginHorizontal: '5%', borderRadius: 4}}>
-                            <Text style={{color: '#2D3142', marginTop: -5, fontSize: 30, fontFamily: 'Barlow_600SemiBold'}}>3.5</Text>
-                            <StarRating rating={avg} onChange={()=> {}} 
+                            <Text style={{color: '#2D3142', marginTop: -5, fontSize: 30, fontFamily: 'Barlow_600SemiBold'}}>{avgCult}</Text>
+                            <StarRating rating={avgCult} onChange={()=> {}} 
                                     starSize={18} 
                                     starStyle={{marginHorizontal: 0.4}}
                                     color='#2D3142'
@@ -134,8 +139,8 @@ const RatingsView = () => {
                 </View>
                 <View style={{flexDirection: 'row',}}>
                     <View style={{flexDirection: 'column', alignItems: 'center',  flex: 1, backgroundColor: '#BFCC94', paddingVertical: '2%', marginHorizontal: '5%', borderRadius: 4}}>
-                            <Text style={{color: '#2D3142', marginTop: -5, fontSize: 30, fontFamily: 'Barlow_600SemiBold'}}>3.5</Text>
-                            <StarRating rating={avg} onChange={()=> {}} 
+                            <Text style={{color: '#2D3142', marginTop: -5, fontSize: 30, fontFamily: 'Barlow_600SemiBold'}}>{avgDiv}</Text>
+                            <StarRating rating={avgDiv} onChange={()=> {}} 
                                     starSize={18} 
                                     starStyle={{marginHorizontal: 0.4}}
                                     color='#2D3142'
@@ -266,7 +271,7 @@ const ReviewsView = (props:{}) => {
                 var avg = total / item.ratings.length;          
 
                 return (
-                    <View style={[styles.viewCard, {backgroundColor: '#F0FAEF', paddingLeft: '2%', shadowColor: 'black', shadowOpacity: 0.4, shadowOffset: {width:0, height:0}}]}>
+                    <View style={[styles.viewCard, {backgroundColor: '#f0ebed', paddingLeft: '2%', shadowColor: 'black', shadowOpacity: 0.4, shadowOffset: {width:0, height:0}}]}>
                         <View style={{paddingHorizontal: '5%'}}>
                             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                                 <StarRating rating={avg} onChange={() => { }} starSize={18} color='#2D3142' starStyle={{ marginHorizontal: 2, alignSelf: 'center', alignItems: 'center'}} /> 
@@ -340,27 +345,27 @@ const dummyCompany = {
     ],
     'reviews': [
         {
-            'content': 'Company is Ok. Could be better.',
+            'content': "In my experience working here, I'd say it's a supportive workspace and has a good company culture.",
             'ratings': [
                 {
                     'category': 'Work-Life Balance',
-                    'rating': 4,
+                    'rating': 3.5,
                 },
                 {
                     'category': 'Compensation',
-                    'rating': 3.5,
+                    'rating': 4.5,
                 },
                 {
                     'category': 'Career Growth',
-                    'rating': 3.5,
-                },
-                {
-                    'category': 'Company Culture',
                     'rating': 4,
                 },
                 {
+                    'category': 'Company Culture',
+                    'rating': 4.5,
+                },
+                {
                     'category': 'Diversity',
-                    'rating' : 2
+                    'rating' : 3
                 }
             ],
             'date': 'January 1, 2022',
@@ -423,6 +428,7 @@ const dummyCompany = {
         }
     ]
 }
+
 
 
 const CompanyPage = ({navigation}) => {

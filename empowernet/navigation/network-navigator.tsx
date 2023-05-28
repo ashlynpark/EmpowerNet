@@ -15,13 +15,6 @@ const NetworkNavigator = () => {
                     headerShown: false
                 }}
             />
-            <Stack.Screen 
-                name="userProfile"
-                component={ProfilePage}
-                options={{
-                    headerShown: false
-                }}
-            />
         </Stack.Navigator>
 
 
