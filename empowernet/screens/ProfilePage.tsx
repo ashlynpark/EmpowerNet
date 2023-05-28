@@ -6,24 +6,22 @@ import { Ionicons } from '@expo/vector-icons';
 const ProfilePage = () => {
     return(
         <Screen preset='scroll'>
-            <SafeAreaView style={[styles.titleContainer, {flexDirection: 'row'}]}>
+            <SafeAreaView style={[styles.titleContainer, {flexDirection: 'column'}]}>
                 <Ionicons name="person-circle-outline" size={100} color="white" style={{paddingHorizontal: '7%', paddingTop: 15}} />
                 <View style={{flexDirection: 'column', alignContent: 'flex-start', width: '55%'}}>
-                    <Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 20, marginLeft: '2%'}]}>
+                    <Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 25, marginLeft: '2%'}]}>
                         Jennifer Henry
                     </Text>
-                    <Text Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 18, marginLeft: '2%'}]}>
-                        Pronouns
+                    
+                    <Text style={[styles.titleText, {opacity: 0.8, flexWrap: 'wrap', fontSize: 14, marginLeft: '2%'}]}>
+                        Software Developer
                     </Text>
-                    <Text Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 18, marginLeft: '2%'}]}>
-                        Position/Job Title
+                    
+                    <Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 14, marginLeft: '2%'}]}>
+                        She/Her
                     </Text>
-                    <Text Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 18, marginLeft: '2%'}]}>
-                        Salary
-                    </Text>
-                    <Text Text style={[styles.titleText, {flexWrap: 'wrap', fontSize: 18, marginLeft: '2%'}]}>
-                        Yrs. of Experience
-                    </Text>
+                   
+                    
                     <View>
                         <Button
                             onPress={() => Alert.alert('Simple Button pressed')}
@@ -36,21 +34,24 @@ const ProfilePage = () => {
             </SafeAreaView>
             
             <View>
-                <Text style={styles.section}>
-                    Demographic
+                <Text style={[styles.titleText, {color: 'black', flexWrap: 'wrap', fontSize: 18, marginLeft: '2%'}]}>
+                       $150,000
+                </Text>
+                <Text style={[styles.titleText, {color: 'black', flexWrap: 'wrap', fontSize: 18, marginLeft: '2%'}]}>
+                       5 years of experience
                 </Text>
                 
-            </View>
-
-            <View>
                 <Text style={styles.section}>
                     Bio
                 </Text>
                 <View style={[styles.viewCard]}>
-                    <Text>What an amazing Bio!</Text>
+                    <Text>Hey, I'm Jennifer! I'm a passionate software developer dedicated to creating more inclusive workplaces.
+                     I'm always seeking opportunities to connect with others who share this vision.</Text>
                 </View>
+                
             </View>
 
+            {/*
             <View>
                 <Text style={styles.section}>
                     Salary and Years of Experience
@@ -60,7 +61,7 @@ const ProfilePage = () => {
                     <Text>7 years of experience</Text>
                 </View>
             </View>
-
+    */}
 
             <View>
                 <Text style={styles.section}>
@@ -88,7 +89,9 @@ const ProfilePage = () => {
                     Education
                 </Text>
                 <View style={[styles.viewCard, {}]}>
-                    
+                    <Text style={[styles.titleText, {color: 'black', fontSize: 19, marginLeft: '2%'}]}>
+                        University of California Irvine.
+                    </Text>
                 </View>
             </View>
         </Screen>

@@ -149,7 +149,6 @@ const RatingsView = () => {
                 </View>
             </View>
             <TouchableOpacity style={[styles.buttonCard]} onPress={()=>{setRatingsModalVisible(true)}}>
-                <Text style={[styles.categoryName2, {fontSize: 16}]}>Ever Worked Here?</Text>
                 <Text style={[styles.categoryName2]}>Rate {globalCompany["Company Name"]}</Text>
             </TouchableOpacity>
             <Modal  visible={showRatingsModal}
@@ -173,81 +172,81 @@ const RatingsView = () => {
                     borderRadius: 12,
                     }}
                 >
-                <Text style={[styles.categoryName1,{alignSelf: 'center', fontSize: 22, marginTop: '5%'}]}>
-                    Rate {globalCompany["Company Name"]}
-                </Text>
-
-                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
-                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
-                        Compensation
+                    <Text style={[styles.categoryName1,{alignSelf: 'center', fontSize: 22, marginTop: '5%'}]}>
+                        Rate {globalCompany["Company Name"]}
                     </Text>
-                    <StarRating rating={ratingComp} onChange={setRatingComp} 
-                                                starSize={30} 
-                                                color={styles.categoryName1.color}/>  
+
+                    <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
+                        <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                            Compensation
+                        </Text>
+                        <StarRating rating={ratingComp} onChange={setRatingComp} 
+                                                    starSize={30} 
+                                                    color={styles.categoryName1.color}/>  
+                    </View>
+
+                    <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
+                        <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                            Career Growth
+                        </Text>
+                        <StarRating rating={ratingCG} onChange={setRatingCG} 
+                                                    starSize={30} 
+                                                    color={styles.categoryName1.color}/>  
+                    </View>
+
+                    <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
+                        <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                            Work-Life Balance
+                        </Text>
+                        <StarRating rating={ratingWLB} onChange={setRatingWLB} 
+                                                    starSize={30} 
+                                                    color={styles.categoryName1.color}/>  
+                    </View>
+
+                    <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
+                        <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                            Company Culture
+                        </Text>
+                        <StarRating rating={ratingCult} onChange={setRatingCult} 
+                                                    starSize={30} 
+                                                    color={styles.categoryName1.color}/>  
+                    </View>
+
+
+                    <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
+                        <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                            Gender Diversity
+                        </Text>
+                        <StarRating rating={ratingDGen} onChange={setRatingDGen} 
+                                                    starSize={30} 
+                                                    color={styles.categoryName1.color}/>  
+                    </View>
+
+                    <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
+                        <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                            LGBTQ+ Diversity
+                        </Text>
+                        <StarRating rating={ratingDLGBT} onChange={setRatingDLGBT} 
+                                                    starSize={30} 
+                                                    color={styles.categoryName1.color}/>  
+                    </View>
+
+
+                    <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%', marginBottom: '5%'}}>
+                        <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
+                            Racial Diversity
+                        </Text>
+                        <StarRating rating={ratingDRace} onChange={setRatingDRace} 
+                                                    starSize={30} 
+                                                    color={styles.categoryName1.color}/>  
+                    </View>
+        
+                    <TouchableOpacity
+                        onPress={() => setRatingsModalVisible(false)}
+                        style={[styles.buttonCard, {width: '50%', alignSelf: 'center'}]}>
+                        <Text style={[styles.categoryName2, {color:'white'}]}>Submit</Text>
+                    </TouchableOpacity>
                 </View>
-
-                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
-                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
-                        Career Growth
-                    </Text>
-                    <StarRating rating={ratingCG} onChange={setRatingCG} 
-                                                starSize={30} 
-                                                color={styles.categoryName1.color}/>  
-                </View>
-
-                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
-                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
-                        Work-Life Balance
-                    </Text>
-                    <StarRating rating={ratingWLB} onChange={setRatingWLB} 
-                                                starSize={30} 
-                                                color={styles.categoryName1.color}/>  
-                </View>
-
-                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
-                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
-                        Company Culture
-                    </Text>
-                    <StarRating rating={ratingCult} onChange={setRatingCult} 
-                                                starSize={30} 
-                                                color={styles.categoryName1.color}/>  
-                </View>
-
-
-                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
-                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
-                        Gender Diversity
-                    </Text>
-                    <StarRating rating={ratingDGen} onChange={setRatingDGen} 
-                                                starSize={30} 
-                                                color={styles.categoryName1.color}/>  
-                </View>
-
-                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
-                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
-                        LGBTQ+ Diversity
-                    </Text>
-                    <StarRating rating={ratingDLGBT} onChange={setRatingDLGBT} 
-                                                starSize={30} 
-                                                color={styles.categoryName1.color}/>  
-                </View>
-
-
-                <View style={{flexDirection: 'column', flex: 1, marginLeft: '5%'}}>
-                    <Text style={[styles.categoryName2, {marginLeft: '3%', color: styles.categoryName1.color, marginTop: '5%', alignSelf: 'flex-start', textAlign: 'left', fontSize: 20}]}>
-                        Racial Diversity
-                    </Text>
-                    <StarRating rating={ratingDRace} onChange={setRatingDRace} 
-                                                starSize={30} 
-                                                color={styles.categoryName1.color}/>  
-                </View>
-       
-                <TouchableOpacity
-                    onPress={() => setRatingsModalVisible(false)}
-                    style={[styles.buttonCard]}>
-                <Text style={[styles.categoryName2, {color:'white'}]}>Close</Text>
-            </TouchableOpacity>
-            </View>
             </Modal>
         </Screen>
     )
